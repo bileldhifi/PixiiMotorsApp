@@ -1,0 +1,100 @@
+# React Native
+# Generated files
+*.log
+*.lock
+*.patch
+*.crt
+*.pem
+*.p12
+*.key
+*.mobileprovision
+*.orig
+*.rej
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# CocoaPods
+ios/Pods/
+
+# Android/IntelliJ
+*.iml
+.gradle/
+local.properties
+.cxx/
+.cxx/
+**/build/
+**/.externalNativeBuild/
+!android/app/src/main/jniLibs/**/*.so
+!android/app/src/main/libs/**/*.jar
+!android/app/src/main/assets/**/*.bundle
+
+# macOS
+*.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# React Native Packager
+/coverage/
+# Uncomment the next line if you have a build script and you don't want to store the artifacts in your repository
+# /build/
+
+# fastlane
+ios/fastlane/report.xml
+ios/fastlane/Preview.html
+ios/fastlane/screenshots
+
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcworkspace
+*.xcconfig
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# WebStorm
+.idea/
+
+# Editor-specific
+.vscode/
+
+# Optional shared libraries
+# android/app/libs/
+# ios/Frameworks/
+
+# Android Studio
+.idea/
+.gradle/
+local.properties
+**/build/

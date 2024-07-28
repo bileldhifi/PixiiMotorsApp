@@ -1,14 +1,16 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import BatteryCard from "../Component/BatteryCard";
 import HomeCard from "../Component/HomeCard";
 import WeatherCard from "../Component/WeatherCard";
 import { Colors } from "../Styles/colors";
 import { horizontalScale, verticalScale } from "../Utils/Metrics";
 import HomeHeader from "../Component/HomeHeader";
+import ToggleButton from "../Component/ToggleButton";
 
 const Home = () => {
   return (
+    <SafeAreaView style={styles.Glcontainer} >
     <View style={styles.container}>
       <HomeHeader />
       <BatteryCard />
@@ -17,17 +19,20 @@ const Home = () => {
           <WeatherCard />
         </View>
         <View style={styles.rightPart}>
-          <HomeCard title="Track Location" iconColor="#03A168" icon="map" />
+          <HomeCard title="Track Location" iconColor="#03A168" icon="map-marker" />
           <View style={styles.spaceBetweenCard}></View>
-          <HomeCard title="Swap Station" iconColor="#03A168" icon="wrench" />
+          <HomeCard title="Swap Station" iconColor="#03A168" icon="qrcode" />
         </View>
       </View>
-      <View></View>
+      <ToggleButton/>      
     </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  Glcontainer: { backgroundColor: Colors.globalBg, flex: 1 },
+
   container: {
     flexDirection: "column",
     // justifyContent: "space-around",

@@ -23,7 +23,7 @@ const HomeCard: React.FC<HomeCardProps> = ({
   return (
     <Pressable style={styles.cardPressable}>
       <Text style={styles.title}>{title}</Text>
-      <Icon name={icon} size={30} color={Colors.cardIcon} />
+      <Icon name={icon} size={45} color={Colors.cardIcon} />
     </Pressable>
   );
 };

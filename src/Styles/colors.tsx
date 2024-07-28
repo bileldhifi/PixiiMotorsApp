@@ -18,4 +18,8 @@ export const Colors = {
     //chargin icon 
     charginIcon : '#F3AF3D',
     charginWrapper:'#FDFAF9',
+
+    //Bottom tab 
+    inactiveTab : '#767676'
+    
 }

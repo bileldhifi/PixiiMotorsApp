@@ -1,14 +1,16 @@
 export const Colors = {
-    globalBg : '#1F1F1F',
-    primary : '#F6F6F6',
-    secondary : '#ADB1B2',
+    globalBg : '#000000',
+    primary : '#FFFFFF',
+    secondary : '#4AFF67',
 
 
     //General Colors icon 
-    bluetooth : 'green',
+    icon : '#4AFF67',
+    cardIcon : '#4AFF67',
+    status : '#F3AF3D',
     
     // card Icon bg
-    backgroundCard : '#303030',
+    backgroundCard : '#161616',
     locationCardIconBg : '#FFF1D9',
     diagnoticCardIconBg: '#ECEFF2',
     modeCardIconBg : '#E4F4EE',

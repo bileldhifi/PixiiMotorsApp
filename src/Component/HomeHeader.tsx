@@ -9,43 +9,30 @@ import { Colors } from "../Styles/colors";
 import { Fonts } from "../Styles/fonts";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Images } from "../Constants/image";
+import { typography } from "../Constants/typography";
 
 const HomeHeader = () => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}>Pixii Shadow V1</Text>
-          <View style={styles.bluetoothWrapper}>
+        <View style={styles.leftSide}>
+          <Text style={styles.title}>Welcome</Text>
+          <Text style={styles.subTitle}>Flen fouleni</Text>
+          <View style={styles.statusContainer}>
             <Icon
-              name="bluetooth"
-              size={moderateScale(20)}
-              color={Colors.bluetooth}
+              name="ellipse"
+              size={moderateScale(15)}
+              color={Colors.status}
+              style={styles.statusIcon}
             ></Icon>
-            <Text style={styles.subTitle}>Connected</Text>
+            <Text style={styles.statusText}>On road</Text>
           </View>
         </View>
         <View style={styles.rightSideWrapper}>
-          <Pressable style={styles.weatherWrapper}>
-            <Text style={styles.weatherText}>35C</Text>
-            <Icon
-              name="white-balance-sunny"
-              size={moderateScale(24)}
-              color={Colors.charginIcon}
-            />
-          </Pressable>
           <Pressable style={styles.profileIcon}>
-            <Icon name="account" size={moderateScale(24)} color="#fff" />
+            <Icon name="account" size={moderateScale(45)} color="#fff" />
           </Pressable>
         </View>
-      </View>
-      <View style={styles.charginContainer}>
-        <Icon
-          name="flash"
-          size={moderateScale(20)}
-          color={Colors.charginIcon}
-        ></Icon>
-        <Text>CHARGING</Text>
       </View>
     </View>
   );
@@ -55,80 +42,61 @@ export default HomeHeader;
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: verticalScale(15),
     flexDirection: "column",
     backgroundColor: Images.headerBackground,
-    height: verticalScale(180),
+    height: verticalScale(120),
+    marginBottom: 0,
+    paddingBottom: 0,
   },
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: horizontalScale(20),
     paddingVertical: moderateScale(10),
   },
-  titleWrapper: {
+  leftSide: {
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "flex-start",
   },
   title: {
     color: Colors.primary,
-    fontFamily: "CALIBREMEDIUM",
-    fontSize: moderateScale(25),
+    fontFamily: typography.light,
+    fontSize: moderateScale(20),
   },
   subTitle: {
-    color: Colors.secondary,
-    fontSize: moderateScale(15),
+    color: Colors.primary,
+    fontSize: moderateScale(30),
+    fontFamily: typography.medium,
   },
   rightSideWrapper: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    alignContent: "flex-start",
     alignSelf: "flex-start",
-  },
-  weatherWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
-    alignContent: "center",
-    alignSelf: "center",
-    padding: horizontalScale(5),
-    borderRadius: moderateScale(20),
-    backgroundColor: "grey",
-    marginHorizontal: horizontalScale(5),
-  },
-  weatherText: {
-    fontSize: moderateScale(15),
-    marginHorizontal : horizontalScale(5)
+    marginTop: verticalScale(10),
   },
 
   profileIcon: {
-    borderRadius: moderateScale(20),
+    borderRadius: moderateScale(50),
     backgroundColor: "grey",
     justifyContent: "center",
     alignItems: "center",
-    // width: horizontalScale(40),
-    // height: horizontalScale(40),
     padding: horizontalScale(5),
   },
-  bluetoothWrapper: {
-    flexDirection: "row",
-    alignContent: "center",
-  },
-  charginContainer: {
+
+  statusContainer: {
     flexDirection: "row",
     alignItems: "center",
     borderRadius: moderateScale(20),
-    justifyContent: "center",
-    backgroundColor: "grey",
-    width: horizontalScale(120),
-    paddingVertical: verticalScale(2),
-    alignSelf: "center",
-    color: Colors.charginWrapper,
+    paddingHorizontal: horizontalScale(15),
+    paddingVertical: verticalScale(4),
+    borderColor: Colors.status,
+    borderWidth: horizontalScale(0.8),
+    marginVertical: verticalScale(10),
   },
-  chargingText: {
-    color: Colors.primary,
-    fontFamily: "CALIBREMEDIUM",
-    fontSize: moderateScale(15),
-    marginLeft: horizontalScale(10),
+  statusIcon: { paddingRight: horizontalScale(5)},
+  statusText: {
+    color: Colors.status,
+    fontFamily: typography.medium,
+    fontSize: moderateScale(12),
   },
 });

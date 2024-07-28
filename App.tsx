@@ -1,21 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import HomeCard from "./src/Component/HomeCard";
-import Home from "./src/Screens/Home";
-import BatteryCard from "./src/Component/BatteryCard";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import HomeHeader from "./src/Component/HomeHeader";
+import Home from "./src/Screens/Home";
 import { Colors } from "./src/Styles/colors";
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <HomeHeader/>
-      <Home />
-      {/* <BatteryCard/> */}
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <Home />
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default App;
 
-const styles = StyleSheet.create({ container : {backgroundColor : Colors.globalBg,flex:  1} });
+const styles = StyleSheet.create({
+  container: { backgroundColor: Colors.globalBg, flex: 1 },
+});

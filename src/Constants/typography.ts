@@ -1,5 +1,6 @@
-export const typography= {
-primary : "CALIBREMEDIUM",
-secondary:"ABeeZeeRegular",
-bilel:"PlaywriteHURegular"
-}
+export const typography = {
+  light: "PlusJakartaSans-Light",
+  regular: "PlusJakartaSans-Regular",
+  medium: "PlusJakartaSans-Medium",
+  semiBold: "PlusJakartaSans-SemiBold",
+};

@@ -1,90 +1,83 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Colors } from "../Styles/colors";
-import { Fonts } from "../Styles/fonts";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from "../Utils/Metrics";
+import { Fonts } from "../Styles/fonts";
+import { Images } from "../Constants/image";
 import { typography } from "../Constants/typography";
 
 const BatteryCard = () => {
   return (
-    <View style={styles.container}>
-      <Pressable style={styles.pressable}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Battery</Text>
-          <Icon name="chevron-right" size={24} color={Colors.chevronColor}/>
+    <ImageBackground source={Images.scooterLogo} style={styles.imageBg}>
+      <View style={styles.container}>
+        <View style={styles.batteryWrapper}>
+          <Text style={styles.batteryText}>Battery</Text>
+          <Text style={styles.batterySubText}>100%</Text>
         </View>
-        <Text style={styles.subText}>Last charge 2w ago</Text>
-        <View style={styles.batteryContainer}>
-          <Icon name="home" size={50}></Icon>
-          <View style={styles.battery}>
-            <Text style={styles.batteryLevel}>85%</Text>
-          </View>
+        <View style={styles.batteryWrapper}>
+          <Text style={styles.batteryText}>Range</Text>
+          <Text style={styles.batterySubText}>10 Km</Text>
         </View>
-        <Text style={styles.distance}>212 km</Text>
-      </Pressable>
-    </View>
+        <View style={styles.batteryWrapper}>
+          <Pressable style={styles.iconRadius}>
+            <Icon
+              name="chevron-down"
+              size={moderateScale(50)}
+              color='#767676'
+            />
+          </Pressable>
+        </View>
+      </View>
+    </ImageBackground>
+    // </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    borderRadius: horizontalScale(20),
-    padding: moderateScale(15),
-    // marginVertical: verticalScale(10),
-    backgroundColor: Colors.backgroundCard,
-    flex: 1,
-    shadowOffset: { width: 0, height: 2 },
-    // shadowOpacity: 0.2,
+export default BatteryCard;
 
+const styles = StyleSheet.create({
+  imageBg: {
+    height: verticalScale(200),
+    resizeMode: "contain",
+    justifyContent: "flex-end",
   },
-  pressable: {
-    flexDirection: "column",
-  },
-  header: {
+  container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "100%",
-    marginBottom: verticalScale(10),
-  },
-  headerText: {
-    fontSize: moderateScale(16),
-    color: Colors.primary,
-    fontFamily: "CALIBREMEDIUM",
-  },
-  subText: {
-    color: Colors.secondary,
-    fontFamily: typography.bilel,
-    marginBottom: verticalScale(10),
-  },
-  batteryContainer: {
-    flexDirection: "row",
     alignItems: "center",
-    marginTop: verticalScale(10),
-    marginBottom: verticalScale(10),
+    paddingHorizontal: horizontalScale(10),
+    paddingVertical: verticalScale(20),
   },
-  battery: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#d4edda",
-    padding: horizontalScale(10),
-    borderRadius: horizontalScale(10),
+  batteryWrapper: {
+    flexDirection: "column",
   },
-  batteryLevel: {
-    fontSize: moderateScale(18),
-    color: "#28a745",
-    fontFamily: "CALIBREMEDIUM",
+  iconRadius: {
+    margin: 0,
+    borderRadius: moderateScale(50),
+    backgroundColor: Colors.backgroundCard,
   },
-  distance: {
-    marginTop: verticalScale(10),
-    fontSize: moderateScale(16),
-    fontFamily: "CALIBREMEDIUM",
+  batteryText: {
     color: Colors.primary,
+    paddingVertical: verticalScale(5),
+    fontSize: Fonts.primary,
+    fontFamily: typography.regular,
+  },
+  batterySubText: {
+    color: Colors.icon,
+    fontSize: Fonts.secondary,
+    paddingVertical: verticalScale(5),
+    fontFamily: typography.semiBold,
   },
 });
-
-export default BatteryCard;

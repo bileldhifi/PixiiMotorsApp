@@ -12,8 +12,8 @@ export default class HomeStack extends Component {
   render() {
     return (
         <Stack.Navigator screenOptions={{headerShown : false}}>
-        <Stack.Screen name="BatteryDetails" component={BatteryDetails} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="BatteryDetails" component={BatteryDetails} />
       </Stack.Navigator>
     )
   }

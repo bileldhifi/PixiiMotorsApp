@@ -21,5 +21,4 @@ export const Colors = {
 
     //Bottom tab 
     inactiveTab : '#767676'
-    
 }

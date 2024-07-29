@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: Colors.backgroundCard,
     padding: verticalScale(10),
+    marginTop : verticalScale(10)
   },
   buttonContainer: {
     flexDirection: "row",
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
-    flex: 1, // Make each side take 50% of the width
+    flex: 1, 
     height: verticalScale(50),
     justifyContent: "center",
     alignItems: "center",

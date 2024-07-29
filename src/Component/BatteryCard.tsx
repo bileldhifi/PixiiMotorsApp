@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   ImageBackground,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -18,30 +17,50 @@ import { Fonts } from "../Styles/fonts";
 import { Images } from "../Constants/image";
 import { typography } from "../Constants/typography";
 
-const BatteryCard = () => {
+interface BatteryCardProps {
+  expanded: boolean;
+  toggleExpanded: () => void;
+}
+
+const BatteryCard: React.FC<BatteryCardProps> = ({
+  expanded,
+  toggleExpanded,
+}) => {
   return (
-    <ImageBackground source={Images.scooterLogo} style={styles.imageBg}>
-      <View style={styles.container}>
-        <View style={styles.batteryWrapper}>
-          <Text style={styles.batteryText}>Battery</Text>
-          <Text style={styles.batterySubText}>100%</Text>
-        </View>
-        <View style={styles.batteryWrapper}>
-          <Text style={styles.batteryText}>Range</Text>
-          <Text style={styles.batterySubText}>10 Km</Text>
-        </View>
-        <View style={styles.batteryWrapper}>
-          <Pressable style={styles.iconRadius}>
+    <View>
+      <ImageBackground source={Images.scooterLogo} style={styles.imageBg}>
+        <View style={styles.container}>
+          <View style={styles.batteryWrapper}>
+            <Text style={styles.batteryText}>Battery</Text>
+            <Text style={styles.batterySubText}>81%</Text>
+          </View>
+          <View style={styles.batteryWrapper}>
+            <Text style={styles.batteryText}>Range</Text>
+            <Text style={styles.batterySubText}>64 Km</Text>
+          </View>
+          <Pressable style={styles.iconRadius} onPress={toggleExpanded}>
             <Icon
-              name="chevron-down"
+              name={expanded ? "chevron-up" : "chevron-down"}
               size={moderateScale(50)}
-              color='#767676'
+              color={expanded ? Colors.cardIcon : "#767676"}
             />
           </Pressable>
         </View>
-      </View>
-    </ImageBackground>
-    // </View>
+      </ImageBackground>
+
+      {expanded && (
+        <View style={styles.expandedContainer}>
+          <View style={styles.batteryWrapper}>
+            <Text style={styles.batteryText}>Current Speed</Text>
+            <Text style={styles.batterySubText}>27 Km/h</Text>
+          </View>
+          <View style={styles.batteryWrapper}>
+            <Text style={styles.batteryText}>Mode</Text>
+            <Text style={styles.batterySubText}>Eco</Text>
+          </View>
+        </View>
+      )}
+    </View>
   );
 };
 
@@ -60,8 +79,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: horizontalScale(10),
     paddingVertical: verticalScale(20),
   },
+  expandedContainer: {
+    backgroundColor: Colors.globalBg,
+    paddingHorizontal: horizontalScale(10),
+    paddingVertical: verticalScale(10),
+    flexDirection : 'row',
+    justifyContent : 'space-between'
+  },
   batteryWrapper: {
     flexDirection: "column",
+    marginVertical: verticalScale(5),
   },
   iconRadius: {
     margin: 0,

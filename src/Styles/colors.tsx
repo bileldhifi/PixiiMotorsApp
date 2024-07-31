@@ -20,5 +20,10 @@ export const Colors = {
     charginWrapper:'#FDFAF9',
 
     //Bottom tab 
-    inactiveTab : '#767676'
+    inactiveTab : '#767676',
+
+    //grey
+    grey : '#767676'
 }
+
+

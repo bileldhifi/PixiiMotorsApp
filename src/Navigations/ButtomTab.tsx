@@ -8,6 +8,9 @@ import { moderateScale, verticalScale } from "../Utils/Metrics";
 import Support from "../Screens/Support";
 import Notification from "../Screens/Notification";
 import Setting from "../Screens/Setting";
+import { StyleSheet } from "react-native";
+import { typography } from "../Constants/typography";
+import CustomTabHeader from "../Component/CustomTabHeader";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,17 +18,18 @@ export default class ButtomTab extends Component {
   render() {
     return (
       <Tab.Navigator
-      sceneContainerStyle={{}}
-      initialRouteName="HomeStack"
+        sceneContainerStyle={{}}
+        initialRouteName="HomeStack"
         screenOptions={{
           tabBarShowLabel: false,
           headerShown: false,
           tabBarInactiveTintColor: Colors.inactiveTab,
           tabBarActiveTintColor: Colors.cardIcon,
+          headerTitleStyle: styles.headerTitle,
+          headerStyle: styles.headerStyles,
           tabBarStyle: {
             backgroundColor: Colors.globalBg,
             height: verticalScale(100),
-            
           },
         }}
       >
@@ -33,8 +37,15 @@ export default class ButtomTab extends Component {
           name="Support"
           component={Support}
           options={{
+            headerTitle: () => <CustomTabHeader icon="home" title="Support" />,
+            headerStyle: {},
+            headerShown: true,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="face-agent" color={color} size={verticalScale(35)} />
+              <MaterialCommunityIcons
+                name="face-agent"
+                color={color}
+                size={verticalScale(35)}
+              />
             ),
           }}
         />
@@ -42,8 +53,13 @@ export default class ButtomTab extends Component {
           name="MapTab"
           component={MapStack}
           options={{
+            headerShown: true,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="moped" color={color} size={verticalScale(35)} />
+              <MaterialCommunityIcons
+                name="moped"
+                color={color}
+                size={verticalScale(35)}
+              />
             ),
           }}
         />
@@ -52,17 +68,30 @@ export default class ButtomTab extends Component {
           component={HomeStack}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="hexagon-slice-6" color={color} size={verticalScale(50)} />
+              <MaterialCommunityIcons
+                name="hexagon-slice-6"
+                color={color}
+                size={verticalScale(50)}
+              />
             ),
             tabBarItemStyle: { marginBottom: verticalScale(30) },
           }}
         />
         <Tab.Screen
-          name="Notification"
+          name="Notifications"
           component={Notification}
           options={{
+            headerTitle: () => (
+              <CustomTabHeader icon="bell" title="Notifications" />
+            ),
+
+            headerShown: true,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="bell" color={color} size={verticalScale(35)} />
+              <MaterialCommunityIcons
+                name="bell"
+                color={color}
+                size={verticalScale(35)}
+              />
             ),
           }}
         />
@@ -70,8 +99,13 @@ export default class ButtomTab extends Component {
           name="Setting"
           component={Setting}
           options={{
+            headerShown: true,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="cog" color={color} size={verticalScale(35)} />
+              <MaterialCommunityIcons
+                name="cog"
+                color={color}
+                size={verticalScale(35)}
+              />
             ),
           }}
         />
@@ -79,3 +113,16 @@ export default class ButtomTab extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  headerStyles: {
+    backgroundColor: Colors.globalBg,
+    height: verticalScale(90),
+  },
+  headerTitle: {
+    fontSize: moderateScale(30),
+    justifyContent: "center",
+    color: Colors.primary,
+    fontFamily: typography.semiBold,
+  },
+});

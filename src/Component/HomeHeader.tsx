@@ -1,15 +1,14 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { Images } from "../Constants/image";
+import { typography } from "../Constants/typography";
+import { Colors } from "../Styles/colors";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from "../Utils/Metrics";
-import { Colors } from "../Styles/colors";
-import { Fonts } from "../Styles/fonts";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { Images } from "../Constants/image";
-import { typography } from "../Constants/typography";
 
 const HomeHeader = () => {
   return (

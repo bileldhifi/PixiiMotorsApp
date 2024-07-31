@@ -27,17 +27,21 @@ const BatteryCard: React.FC<BatteryCardProps> = ({
   toggleExpanded,
 }) => {
   return (
-    <View>
+    <View >
       <ImageBackground source={Images.scooterLogo} style={styles.imageBg}>
         <View style={styles.container}>
-          <View style={styles.batteryWrapper}>
-            <Text style={styles.batteryText}>Battery</Text>
-            <Text style={styles.batterySubText}>81%</Text>
-          </View>
-          <View style={styles.batteryWrapper}>
-            <Text style={styles.batteryText}>Range</Text>
-            <Text style={styles.batterySubText}>64 Km</Text>
-          </View>
+          {!expanded && (
+            <>
+              <View style={styles.batteryWrapper}>
+                <Text style={styles.batteryText}>Battery</Text>
+                <Text style={styles.batterySubText}>81%</Text>
+              </View>
+              <View style={styles.batteryWrapper}>
+                <Text style={styles.batteryText}>Range</Text>
+                <Text style={styles.batterySubText}>64 Km</Text>
+              </View>
+            </>
+          )}
           <Pressable style={styles.iconRadius} onPress={toggleExpanded}>
             <Icon
               name={expanded ? "chevron-up" : "chevron-down"}
@@ -49,16 +53,28 @@ const BatteryCard: React.FC<BatteryCardProps> = ({
       </ImageBackground>
 
       {expanded && (
-        <View style={styles.expandedContainer}>
-          <View style={styles.batteryWrapper}>
-            <Text style={styles.batteryText}>Current Speed</Text>
-            <Text style={styles.batterySubText}>27 Km/h</Text>
+        <>
+          <View style={styles.expandedContainer}>
+            <View style={styles.batteryWrapper}>
+              <Text style={styles.batteryText}>Battery</Text>
+              <Text style={styles.batterySubText}>81%</Text>
+            </View>
+            <View style={styles.batteryWrapper}>
+              <Text style={styles.batteryText}>Range</Text>
+              <Text style={styles.batterySubText}>64 Km</Text>
+            </View>
           </View>
-          <View style={styles.batteryWrapper}>
-            <Text style={styles.batteryText}>Mode</Text>
-            <Text style={styles.batterySubText}>Eco</Text>
+          <View style={styles.expandedContainer}>
+            <View style={styles.batteryWrapper}>
+              <Text style={styles.batteryText}>Current speed</Text>
+              <Text style={styles.batterySubText}>27 Km/h</Text>
+            </View>
+            <View style={styles.batteryWrapper}>
+              <Text style={styles.batteryText}>Mode</Text>
+              <Text style={styles.batterySubText}>Eco</Text>
+            </View>
           </View>
-        </View>
+        </>
       )}
     </View>
   );
@@ -69,8 +85,10 @@ export default BatteryCard;
 const styles = StyleSheet.create({
   imageBg: {
     height: verticalScale(200),
-    resizeMode: "contain",
+    resizeMode: 'contain',
     justifyContent: "flex-end",
+    // marginVertical : verticalScale(100),
+    flex : 1
   },
   container: {
     flexDirection: "row",
@@ -83,12 +101,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.globalBg,
     paddingHorizontal: horizontalScale(10),
     paddingVertical: verticalScale(10),
-    flexDirection : 'row',
-    justifyContent : 'space-between'
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   batteryWrapper: {
     flexDirection: "column",
     marginVertical: verticalScale(5),
+    flex : 1
+
   },
   iconRadius: {
     margin: 0,

@@ -15,6 +15,7 @@ export default class ButtomTab extends Component {
   render() {
     return (
       <Tab.Navigator
+      sceneContainerStyle={{}}
       initialRouteName="HomeStack"
         screenOptions={{
           tabBarShowLabel: false,
@@ -23,7 +24,8 @@ export default class ButtomTab extends Component {
           tabBarActiveTintColor: Colors.cardIcon,
           tabBarStyle: {
             backgroundColor: Colors.globalBg,
-            height: verticalScale(90),
+            height: verticalScale(100),
+            
           },
         }}
       >
@@ -32,7 +34,7 @@ export default class ButtomTab extends Component {
           component={Support}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="face-agent" color={color} size={verticalScale(30)} />
+              <MaterialCommunityIcons name="face-agent" color={color} size={verticalScale(35)} />
             ),
           }}
         />
@@ -41,7 +43,7 @@ export default class ButtomTab extends Component {
           component={MapStack}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="moped" color={color} size={verticalScale(30)} />
+              <MaterialCommunityIcons name="moped" color={color} size={verticalScale(35)} />
             ),
           }}
         />
@@ -50,7 +52,7 @@ export default class ButtomTab extends Component {
           component={HomeStack}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={verticalScale(50)} />
+              <MaterialCommunityIcons name="hexagon-slice-6" color={color} size={verticalScale(50)} />
             ),
             tabBarItemStyle: { marginBottom: verticalScale(30) },
           }}
@@ -60,7 +62,7 @@ export default class ButtomTab extends Component {
           component={Notification}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="bell" color={color} size={verticalScale(30)} />
+              <MaterialCommunityIcons name="bell" color={color} size={verticalScale(35)} />
             ),
           }}
         />
@@ -69,7 +71,7 @@ export default class ButtomTab extends Component {
           component={Setting}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="cog" color={color} size={verticalScale(30)} />
+              <MaterialCommunityIcons name="cog" color={color} size={verticalScale(35)} />
             ),
           }}
         />

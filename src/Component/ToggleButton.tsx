@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: verticalScale(10),
-    marginTop : verticalScale(10)
+    marginTop: verticalScale(10),
   },
   buttonContainer: {
     flexDirection: "row",
@@ -101,10 +101,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.cardIcon,
     borderRadius: moderateScale(10),
     overflow: "hidden",
-    width: '100%',
+    width: "100%",
   },
   button: {
-    flex: 1, 
+    flex: 1,
     height: verticalScale(50),
     justifyContent: "center",
     alignItems: "center",

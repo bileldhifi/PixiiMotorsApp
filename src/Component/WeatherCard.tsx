@@ -23,7 +23,7 @@ const WeatherCard = () => {
             <Text style={styles.batteryLevel}>32°</Text>
             <Icon
               name="white-balance-sunny"
-              size={25}
+              size={horizontalScale(25)}
               style={styles.icon}
             ></Icon>
           </View>

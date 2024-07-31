@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Image,
   LayoutAnimation,
   Platform,
   SafeAreaView,
@@ -9,15 +10,22 @@ import {
 } from "react-native";
 import BatteryCard from "../Component/BatteryCard";
 import HomeCard from "../Component/HomeCard";
+import HomeHeader from "../Component/HomeHeader";
 import WeatherCard from "../Component/WeatherCard";
+import { Images } from "../Constants/image";
 import { Colors } from "../Styles/colors";
 import { horizontalScale, verticalScale } from "../Utils/Metrics";
-import HomeHeader from "../Component/HomeHeader";
-import ToggleButton from "../Component/ToggleButton";
-
+import SwipeButton from "rn-swipe-button";
+import { ScrollView } from "react-native-gesture-handler";
 const Home = () => {
   const [expanded, setExpanded] = useState(false);
+  const [lock, setLock] = useState(false);
 
+  const lockUnlock = () => {
+    setLock(!lock);
+  };
+
+  // animation
   if (Platform.OS === "android") {
     UIManager.setLayoutAnimationEnabledExperimental &&
       UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -30,33 +38,61 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.Glcontainer}>
-      <View style={styles.container}>
-        <HomeHeader />
-        <BatteryCard expanded={expanded} toggleExpanded={toggleExpanded} />
-        {!expanded && (
-          <>
-            <View style={styles.cardContainer}>
-              <View style={styles.leftPart}>
-                <WeatherCard />
+      <ScrollView>
+        <View style={styles.container}>
+          <HomeHeader />
+          <BatteryCard expanded={expanded} toggleExpanded={toggleExpanded} />
+          {!expanded && (
+            <>
+              <View style={styles.cardContainer}>
+                <View style={styles.leftPart}>
+                  <WeatherCard />
+                </View>
+                <View style={styles.rightPart}>
+                  <HomeCard
+                    title="Track Location"
+                    iconColor="#03A168"
+                    icon="map-marker"
+                  />
+                  <View style={styles.spaceBetweenCard}></View>
+                  <HomeCard
+                    title="Swap Station"
+                    iconColor="#03A168"
+                    icon="qrcode"
+                  />
+                </View>
               </View>
-              <View style={styles.rightPart}>
-                <HomeCard
-                  title="Track Location"
-                  iconColor="#03A168"
-                  icon="map-marker"
+              {/* <SwipeButton
+              Icon={
+                <Image
+                  source={require("../../Assets/Img/pixiiLogo.png")}
+                  style={{ height: 40, width: 40}}
                 />
-                <View style={styles.spaceBetweenCard}></View>
-                <HomeCard
-                  title="Swap Station"
-                  iconColor="#03A168"
-                  icon="qrcode"
-                />
-              </View>
-            </View>
-            <ToggleButton />
-          </>
-        )}
-      </View>
+              }
+              onComplete={() => lockUnlock()}
+              title={lock? 'Lock' : 'Unlock'}
+              goBackToStart={true}
+              borderRadius={10}
+              underlayStyle={{ backgroundColor: Colors.globalBg }}
+              circleBackgroundColor={Colors.primary}
+              // containerStyle={{backgroundColor : 'grey'}}
+            /> */}
+              {/* <SwipeButton
+              railBackgroundColor={Colors.globalBg}
+              railStyles={styles.rail}
+              thumbIconStyles={styles.thumbIcon}
+              railFillBackgroundColor={Colors.globalBg}
+              onComplete={() => console.log("done")}
+              title="Swipe to complete"
+              titleStyles={styles.title}
+              railBorderRadius={10}
+              thumbIconBorderRadius={10}
+              shouldResetAfterSuccess= {true}
+            /> */}
+            </>
+          )}
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -77,7 +113,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "stretch",
-    marginTop: verticalScale(10),
+    marginVertical: verticalScale(10),
   },
 
   leftPart: {
@@ -91,6 +127,25 @@ const styles = StyleSheet.create({
     marginLeft: horizontalScale(10),
   },
   spaceBetweenCard: { height: verticalScale(20) },
+
+  // swiper button style :
+  rail: {
+    borderRadius: 10,
+    height: 50, // Adjust as needed
+  },
+  thumbIcon: {
+    borderRadius: 10,
+    width: "30%",
+  },
+  icon: {
+    height: "100%", // Ensure the image fits the thumb icon
+    width: "100%",
+    resizeMode: "contain", // Maintain aspect ratio
+  },
+  title: {
+    color: "#000", // Example title color
+    fontSize: 16, // Example title size
+  },
 });
 
 export default Home;

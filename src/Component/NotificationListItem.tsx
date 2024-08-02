@@ -31,7 +31,12 @@ export default class NotificationListItem extends Component {
         bottomDivider={true}
       >
         <View style={styles.container}>
-          <Icon name="album" style={styles.mainIcon} color={Colors.cardIcon} size={moderateScale(15)} />
+          <Icon
+            name="album"
+            style={styles.mainIcon}
+            color={Colors.cardIcon}
+            size={moderateScale(15)}
+          />
           <ListItem.Content style={styles.textWrapper}>
             <ListItem.Title style={styles.title}>
               New Achievement unlocked
@@ -72,12 +77,11 @@ const styles = StyleSheet.create({
     fontFamily: typography.light,
     color: Colors.primary,
     fontSize: moderateScale(13),
-    marginTop: verticalScale(20), 
+    marginTop: verticalScale(20),
   },
   mainIcon: {
     marginRight: 10,
-    alignSelf: "flex-start", 
-
+    alignSelf: "flex-start",
   },
   textWrapper: {
     flex: 1,

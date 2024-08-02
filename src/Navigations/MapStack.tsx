@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
-import Map from '../Screens/Map'
+import Map from '../Screens/MapScreen'
 import { createStackNavigator } from '@react-navigation/stack';
 
 

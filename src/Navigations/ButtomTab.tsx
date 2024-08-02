@@ -5,12 +5,13 @@ import MapStack from "./MapStack";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { Colors } from "../Styles/colors";
 import { moderateScale, verticalScale } from "../Utils/Metrics";
-import Support from "../Screens/Support";
-import Notification from "../Screens/Notification";
-import Setting from "../Screens/Setting";
+import Support from "../Screens/SupportScreen";
+import Notification from "../Screens/NotificationScreen";
+import Setting from "../Screens/SettingScreen";
 import { StyleSheet } from "react-native";
 import { typography } from "../Constants/typography";
 import CustomTabHeader from "../Component/CustomTabHeader";
+import QrcodeScreen from "../Screens/QrcodeScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,7 +30,8 @@ export default class ButtomTab extends Component {
           headerStyle: styles.headerStyles,
           tabBarStyle: {
             backgroundColor: Colors.globalBg,
-            height: verticalScale(100),
+            height: verticalScale(130),
+            borderTopWidth : 0
           },
         }}
       >
@@ -44,22 +46,26 @@ export default class ButtomTab extends Component {
               <MaterialCommunityIcons
                 name="face-agent"
                 color={color}
-                size={verticalScale(35)}
+                size={verticalScale(40)}
               />
             ),
+            
           }}
         />
         <Tab.Screen
-          name="MapTab"
-          component={MapStack}
+          name="Scan QrCode"
+          component={QrcodeScreen}
           options={{
             headerShown: true,
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="moped"
                 color={color}
-                size={verticalScale(35)}
+                size={verticalScale(40)}
               />
+            ),
+            headerTitle: () => (
+              <CustomTabHeader icon="moped" title="Scan Qrcode" />
             ),
           }}
         />
@@ -71,12 +77,14 @@ export default class ButtomTab extends Component {
               <MaterialCommunityIcons
                 name="hexagon-slice-6"
                 color={color}
-                size={verticalScale(50)}
+                size={verticalScale(60)}
               />
             ),
+            
             tabBarItemStyle: { marginBottom: verticalScale(30) },
+            
           }}
-        />
+        />  
         <Tab.Screen
           name="Notifications"
           component={Notification}
@@ -90,7 +98,7 @@ export default class ButtomTab extends Component {
               <MaterialCommunityIcons
                 name="bell"
                 color={color}
-                size={verticalScale(35)}
+                size={verticalScale(40)}
               />
             ),
           }}
@@ -104,7 +112,7 @@ export default class ButtomTab extends Component {
               <MaterialCommunityIcons
                 name="cog"
                 color={color}
-                size={verticalScale(35)}
+                size={verticalScale(40)}
               />
             ),
           }}
@@ -117,12 +125,16 @@ export default class ButtomTab extends Component {
 const styles = StyleSheet.create({
   headerStyles: {
     backgroundColor: Colors.globalBg,
-    height: verticalScale(90),
+    height: verticalScale(110),
+    borderBottomWidth: 0, // Remove bottom border
+    elevation: 0, // Remove shadow for Android
+    shadowOpacity: 0, // Remove shadow for iOS
   },
   headerTitle: {
     fontSize: moderateScale(30),
     justifyContent: "center",
     color: Colors.primary,
     fontFamily: typography.semiBold,
+
   },
 });

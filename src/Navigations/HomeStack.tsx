@@ -1,8 +1,8 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
-import BatteryDetails from '../Screens/BatteryDetails';
-import Home from '../Screens/Home';
+import BatteryDetails from '../Screens/BatteryDetailsScreen';
+import Home from '../Screens/HomeScreen';
 
 
 

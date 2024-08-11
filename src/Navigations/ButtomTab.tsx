@@ -12,6 +12,8 @@ import { StyleSheet } from "react-native";
 import { typography } from "../Constants/typography";
 import CustomTabHeader from "../Component/CustomTabHeader";
 import QrcodeScreen from "../Screens/QrcodeScreen";
+import ScanCode from "../Screens/ScanCodeScreen";
+import QrCodeStack from "./QrCodeStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -54,7 +56,7 @@ export default class ButtomTab extends Component {
         />
         <Tab.Screen
           name="Scan QrCode"
-          component={QrcodeScreen}
+          component={QrCodeStack}
           options={{
             headerShown: true,
             tabBarIcon: ({ color, size }) => (
@@ -126,9 +128,7 @@ const styles = StyleSheet.create({
   headerStyles: {
     backgroundColor: Colors.globalBg,
     height: verticalScale(110),
-    borderBottomWidth: 0, // Remove bottom border
-    elevation: 0, // Remove shadow for Android
-    shadowOpacity: 0, // Remove shadow for iOS
+
   },
   headerTitle: {
     fontSize: moderateScale(30),

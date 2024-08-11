@@ -37,6 +37,7 @@ const QrcodeScreen = () => {
   const [cameraPosition, setCameraPosition] = useState<"front" | "back">(
     "back"
   );
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
 
   useEffect(() => {
     async function getPermission() {
@@ -108,39 +109,38 @@ const QrcodeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <GestureDetector gesture={tapGesture}>
-          <ReanimatedCamera
-            ref={camera}
-            style={StyleSheet.absoluteFill}
-            device={device}
-            isActive={true}
-            photo={true}
-            codeScanner={codeScanner}
-            enableZoomGesture={true}
-            animatedProps={animatedProps}
-        
-          />
-        </GestureDetector>
-      </GestureHandlerRootView>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <GestureDetector gesture={tapGesture}>
+              <ReanimatedCamera
+                ref={camera}
+                style={StyleSheet.absoluteFill}
+                device={device}
+                isActive={true}
+                photo={true}
+                codeScanner={codeScanner}
+                enableZoomGesture={true}
+                animatedProps={animatedProps}
+              />
+            </GestureDetector>
+          </GestureHandlerRootView>
 
-      <View style={styles.iconWrapper}>
-        <Pressable onPress={toggleFlash}>
-          <Icon
-            name={cameraFlash ? "flashlight" : "flashlight-off"}
-            size={verticalScale(25)}
-            style={styles.icon}
-          />
-        </Pressable>
-        <Pressable onPress={toggleCameraPosition}>
-          <Icon
-            name="camera-switch"
-            size={verticalScale(25)}
-            style={styles.icon}
-          />
-        </Pressable>
-        <Icon name="home" size={verticalScale(25)} style={styles.icon} />
-      </View>
+          <View style={styles.iconWrapper}>
+            <Pressable onPress={toggleFlash}>
+              <Icon
+                name={cameraFlash ? "flashlight" : "flashlight-off"}
+                size={verticalScale(25)}
+                style={styles.icon}
+              />
+            </Pressable>
+            <Pressable onPress={toggleCameraPosition}>
+              <Icon
+                name="camera-switch"
+                size={verticalScale(25)}
+                style={styles.icon}
+              />
+            </Pressable>
+            <Icon name="home" size={verticalScale(25)} style={styles.icon} />
+          </View>
     </View>
   );
 };

@@ -70,12 +70,14 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     fontFamily: typography.light,
-    color: Colors.primary,
+    color: Colors.grey,
     fontSize: moderateScale(13),
+    marginTop: verticalScale(5),
+
   },
   description: {
     fontFamily: typography.light,
-    color: Colors.primary,
+    color: Colors.grey,
     fontSize: moderateScale(13),
     marginTop: verticalScale(20),
   },

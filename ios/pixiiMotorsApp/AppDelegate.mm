@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "RNBootSplash.h" // ⬅️ add the header import
 
 #import <React/RCTBundleURLProvider.h>
 
@@ -27,5 +28,13 @@
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
+
+
+//splash screen 
+// ⬇️ Add this before file @end (for react-native 0.74+)
+- (void)customizeRootView:(RCTRootView *)rootView {
+  [RNBootSplash initWithStoryboard:@"LaunchScreen" rootView:rootView]; // ⬅️ initialize the splash screen
+}
+
 
 @end

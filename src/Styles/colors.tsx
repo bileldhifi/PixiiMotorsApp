@@ -23,7 +23,10 @@ export const Colors = {
     inactiveTab : '#767676',
 
     //grey
-    grey : '#767676'
+    grey : '#767676',
+    black : '#021526',
+    //login page 
+    blue : '#4D81E7'
 }
 
 

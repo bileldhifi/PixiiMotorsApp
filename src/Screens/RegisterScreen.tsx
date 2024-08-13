@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Button,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
@@ -17,8 +18,15 @@ import { Colors } from "../Styles/colors";
 import { typography } from "../Constants/typography";
 import { Images } from "../Constants/image";
 import LinearGradient from "react-native-linear-gradient";
+import { ScrollView } from "react-native-gesture-handler";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import DatePicker from "react-native-date-picker";
 
 const RegisterScreen = () => {
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
+  const [dateText, setDateText] = useState("");
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -34,7 +42,7 @@ const RegisterScreen = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.nameLastNameWrapper}>
-          <View style={styles.nameWrapper}>
+          <View style={[styles.nameWrapper, styles.firstNameWrapper]}>
             <Text style={styles.textInput}>First Name</Text>
             <TextInput style={styles.input} placeholder="First Name" />
           </View>
@@ -52,6 +60,33 @@ const RegisterScreen = () => {
           />
         </View>
         <View style={styles.inputWrapper}>
+          <Text style={styles.textInput}>Data of birth</Text>
+          <View style={styles.passContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Data of birth"
+              value={dateText}
+              editable={false}
+              onPress={() => setOpen(true)}
+            />
+            <Icon name="calendar" size={20} style={styles.icon} />
+          </View>
+          <DatePicker
+            modal
+            open={open}
+            date={date}
+            mode="date"
+            onConfirm={(date) => {
+              setOpen(false);
+              setDate(date);
+              setDateText(date.toLocaleDateString());
+            }}
+            onCancel={() => {
+              setOpen(false);
+            }}
+          />
+        </View>
+        <View style={styles.inputWrapper}>
           <Text style={styles.textInput}>Phone Number</Text>
           <TextInput
             style={styles.input}
@@ -61,7 +96,6 @@ const RegisterScreen = () => {
         </View>
         <View style={styles.inputWrapper}>
           <Text style={styles.textInput}>Password</Text>
-
           <View style={styles.passContainer}>
             <TextInput
               style={styles.input}
@@ -116,6 +150,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     marginLeft: horizontalScale(30),
   },
+  firstNameWrapper: { marginRight: horizontalScale(15) },
   tabContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -193,6 +228,17 @@ const styles = StyleSheet.create({
     fontFamily: typography.semiBold,
     fontSize: moderateScale(13),
   },
+  dateInputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    position: "relative",
+  },
+  dateIconContainer: {
+    position: "absolute",
+    right: horizontalScale(10),
+    padding: 10,
+  },
+
   loginButton: {
     width: "100%",
     paddingHorizontal: horizontalScale(15),

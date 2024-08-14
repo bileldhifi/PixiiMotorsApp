@@ -24,7 +24,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import DatePicker from "react-native-date-picker";
 import { CountryPicker } from "react-native-country-codes-picker";
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}:any) => {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [dateText, setDateText] = useState("");
@@ -35,19 +35,10 @@ const RegisterScreen = () => {
   const [countryFlag, setcountryFlag] = useState("🇺🇸");
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.textHeader}>Get Started</Text>
-      </View>
+   <>
+      
       <View style={styles.footer}>
-        <View style={styles.tabContainer}>
-          <TouchableOpacity style={styles.tab}>
-            <Text style={styles.tabText}>Sign Up</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.tab, styles.activeTab]}>
-            <Text style={styles.activeTabText}>Log In</Text>
-          </TouchableOpacity>
-        </View>
+        
         <View style={styles.nameLastNameWrapper}>
           <View style={[styles.nameWrapper, styles.firstNameWrapper]}>
             <Text style={styles.textInput}>First Name</Text>
@@ -173,7 +164,7 @@ const RegisterScreen = () => {
           </TouchableOpacity>
         </LinearGradient>
       </View>
-    </View>
+      </>
   );
 };
 

@@ -18,72 +18,48 @@ import { typography } from "../Constants/typography";
 import { Images } from "../Constants/image";
 import LinearGradient from "react-native-linear-gradient";
 import { Screen } from "react-native-screens";
+import LoginScreen from "./LoginScreen";
+import RegisterScreen from "./RegisterScreen";
 
-const LoginScreen = ({navigation}:any) => {
-  const [showPassword, setshowPassword] = useState(false);
+let currentScreen = "login";
 
+const LoginHolder = () => {
+  const [isLoginScreen, setIsLoginScreen] = useState(true); // State to manage the current screen
   return (
-
-      <View style={styles.footer}>
-        <View style={styles.inputWrapper}>
-          <Text style={styles.textInput}>Email</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            keyboardType="email-address"
-          />
-        </View>
-        <View style={styles.inputWrapper}>
-          <Text style={styles.textInput}>Password</Text>
-          <View style={styles.passContainer}>
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              secureTextEntry={!showPassword}
-            />
-            <Icon
-              name={showPassword ? "eye-outline" : "eye-off-outline"}
-              size={20}
-              style={styles.icon}
-              onPress={() => setshowPassword(!showPassword)}
-            />
-          </View>
-        </View>
-        <View style={styles.optionsContainer}>
-          <View style={styles.rememberContainer}>
-            <TouchableOpacity>
-              <Icon name="checkbox-blank-outline" size={20} />
-            </TouchableOpacity>
-            <Text style={styles.rememberText}>Remember me</Text>
-          </View>
-          <TouchableOpacity>
-            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-          </TouchableOpacity>
-        </View>
-        <LinearGradient
-          colors={["#5F5CFF", "#4E4AFF"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={styles.gradient}
-        >
-          <TouchableOpacity style={styles.loginButton} onPress={() => {navigation.navigate('BottomTab')}}>
-            <Text style={styles.loginButtonText}>Log In</Text>
-          </TouchableOpacity>
-        </LinearGradient>
-        <View style={styles.separatorContainer}>
-          <View style={styles.separator} />
-          <Text style={styles.separatorText}>Or</Text>
-          <View style={styles.separator} />
-        </View>
-        <TouchableOpacity style={styles.googleButton}>
-          <Image source={Images.googleLogo} style={styles.googleIcon} />
-          <Text style={styles.googleButtonText}>Continue with Google</Text>
-        </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.textHeader}>Get Started</Text>
       </View>
+      <View style={styles.footer}>
+      <View style={styles.tabContainer}>
+          <TouchableOpacity
+            style={[styles.tab, isLoginScreen && styles.activeTab]}
+            onPress={() => setIsLoginScreen(true)}
+          >
+            <Text
+              style={[styles.tabText, isLoginScreen && styles.activeTabText]}
+            >
+              Log In
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.tab, !isLoginScreen && styles.activeTab]}
+            onPress={() => setIsLoginScreen(false)}
+          >
+            <Text
+              style={[styles.tabText, !isLoginScreen && styles.activeTabText]}
+            >
+              Sign Up
+            </Text>
+          </TouchableOpacity>
+        </View>
+        {isLoginScreen ? <LoginScreen /> : <RegisterScreen />}
+      </View>
+    </View>
   );
 };
 
-export default LoginScreen;
+export default LoginHolder;
 
 const styles = StyleSheet.create({
   container: {
@@ -95,43 +71,32 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
     // justifyContent: "center",
-    alignSelf : 'flex-start',
-    justifyContent : 'center'
+    alignSelf: "flex-start",
+    justifyContent: "center",
   },
   footer: {
     width: "100%",
     backgroundColor: "#fff",
     paddingHorizontal: horizontalScale(20),
     paddingVertical: verticalScale(20),
-    borderTopLeftRadius : 15
+    flex: 3,
+    borderTopLeftRadius: 15,
   },
   textHeader: {
     fontFamily: typography.semiBold,
     fontSize: moderateScale(40),
     color: Colors.primary,
-    marginLeft : horizontalScale(30)
+    marginLeft: horizontalScale(30),
+  },
 
-  },
-  tabContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
-    marginBottom: verticalScale(20),
-  },
   gradient: {
     borderRadius: 12,
   },
-  tab: {
-    flex: 1,
-    alignItems: "center",
-    paddingVertical: verticalScale(10),
-  },
-  activeTab: {
-    backgroundColor: "grey",
-  },
+
+
   inputWrapper: {
     flexDirection: "column",
-    marginVertical : verticalScale(5)
+    marginVertical: verticalScale(5),
   },
   textInput: {
     fontFamily: typography.medium,
@@ -139,14 +104,7 @@ const styles = StyleSheet.create({
     color: Colors.grey,
     marginBottom: verticalScale(4),
   },
-  tabText: {
-    color: "#aaa",
-    fontSize: moderateScale(16),
-  },
-  activeTabText: {
-    color: "#000",
-    fontSize: moderateScale(16),
-  },
+
   input: {
     width: "100%",
     height: verticalScale(50),
@@ -234,5 +192,41 @@ const styles = StyleSheet.create({
   googleButtonText: {
     color: Colors.black,
     fontWeight: "bold",
+  },
+
+// tab style
+
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    borderTopLeftRadius : 8,
+    borderTopRightRadius : 8,
+    borderBottomLeftRadius : 8,
+    borderBottomRightRadius : 8,
+  },
+  tabText: {
+    color: "black",
+    fontSize: moderateScale(16),
+  },
+  tab: {
+    flex: 1,
+    paddingVertical : verticalScale(10),
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor : '#F5F6F9',
+    borderTopLeftRadius : 8,
+    borderTopRightRadius : 8,
+    borderBottomLeftRadius : 8,
+    borderBottomRightRadius : 8,
+  },
+  activeTabText: {
+    color: 'black',
+    fontFamily: typography.semiBold,
+  },
+  activeTab: {
+    backgroundColor : 'white',
+
+
   },
 });

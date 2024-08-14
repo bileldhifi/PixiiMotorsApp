@@ -17,7 +17,7 @@ import QrCodeStack from "./QrCodeStack";
 
 const Tab = createBottomTabNavigator();
 
-export default class ButtomTab extends Component {
+export default class BottomTab extends Component {
   render() {
     return (
       <Tab.Navigator
@@ -104,7 +104,7 @@ export default class ButtomTab extends Component {
               />
             ),
           }}
-        />
+        /> 
         <Tab.Screen
           name="Setting"
           component={Setting}

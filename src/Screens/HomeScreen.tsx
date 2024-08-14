@@ -17,7 +17,7 @@ import { Colors } from "../Styles/colors";
 import { horizontalScale, verticalScale } from "../Utils/Metrics";
 import SwipeButton from "rn-swipe-button";
 import { ScrollView } from "react-native-gesture-handler";
-const Home = () => {
+const HomeScreen = () => {
   const [expanded, setExpanded] = useState(false);
   const [lock, setLock] = useState(false);
 
@@ -148,4 +148,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default HomeScreen;

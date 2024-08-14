@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -19,6 +19,8 @@ import { Images } from "../Constants/image";
 import LinearGradient from "react-native-linear-gradient";
 
 const LoginScreen = () => {
+  const [showPassword, setshowPassword] = useState(false);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -43,14 +45,18 @@ const LoginScreen = () => {
         </View>
         <View style={styles.inputWrapper}>
           <Text style={styles.textInput}>Password</Text>
-
           <View style={styles.passContainer}>
             <TextInput
               style={styles.input}
               placeholder="Password"
-              secureTextEntry={true}
+              secureTextEntry={!showPassword}
             />
-            <Icon name="eye-outline" size={20} style={styles.icon} />
+            <Icon
+              name={showPassword ? "eye-outline" : "eye-off-outline"}
+              size={20}
+              style={styles.icon}
+              onPress={() => setshowPassword(!showPassword)}
+            />
           </View>
         </View>
         <View style={styles.optionsContainer}>
@@ -113,7 +119,7 @@ const styles = StyleSheet.create({
   },
   textHeader: {
     fontFamily: typography.semiBold,
-    fontSize: moderateScale(35),
+    fontSize: moderateScale(40),
     color: Colors.primary,
     marginLeft : horizontalScale(30)
 

@@ -7,6 +7,7 @@ import {
   View,
   Image,
   Button,
+  SafeAreaView,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
@@ -21,11 +22,17 @@ import LinearGradient from "react-native-linear-gradient";
 import { ScrollView } from "react-native-gesture-handler";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import DatePicker from "react-native-date-picker";
+import { CountryPicker } from "react-native-country-codes-picker";
 
 const RegisterScreen = () => {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [dateText, setDateText] = useState("");
+  const [showPassword, setshowPassword] = useState(false);
+  // phone flag country picker
+  const [show, setShow] = useState(false);
+  const [countryCode, setCountryCode] = useState("+1");
+  const [countryFlag, setcountryFlag] = useState("🇺🇸");
 
   return (
     <View style={styles.container}>
@@ -88,21 +95,70 @@ const RegisterScreen = () => {
         </View>
         <View style={styles.inputWrapper}>
           <Text style={styles.textInput}>Phone Number</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Phone Number"
-            keyboardType="phone-pad"
-          />
+          <View style={styles.passContainer}>
+            <TouchableOpacity
+              onPress={() => setShow(true)}
+              style={[
+                styles.phoneNumberInput,
+                {
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderTopLeftRadius: 12,
+                  borderBottomLeftRadius: 12,
+                },
+              ]}
+            >
+              <Text
+                style={{
+                  color: "black",
+                  fontSize: moderateScale(20),
+                }}
+              >
+                {countryFlag}
+              </Text>
+              <Icon name="chevron-down" size={20} />
+            </TouchableOpacity>
+
+            <TextInput
+              style={[
+                styles.phoneNumberInput,
+                {
+                  flex: 1,
+                  borderTopRightRadius: 12,
+                  borderBottomRightRadius: 12,
+                },
+              ]}
+              placeholder="Phone Number"
+              keyboardType="phone-pad"
+            />
+          </View>
         </View>
+
+        <CountryPicker
+          lang={"pl"}
+          show={show}
+          searchMessage="Search for country"
+          pickerButtonOnPress={(item) => {
+            setCountryCode(item.dial_code);
+            setcountryFlag(item.flag);
+            setShow(false);
+          }}
+        />
         <View style={styles.inputWrapper}>
           <Text style={styles.textInput}>Password</Text>
           <View style={styles.passContainer}>
             <TextInput
               style={styles.input}
               placeholder="Password"
-              secureTextEntry={true}
+              secureTextEntry={!showPassword}
             />
-            <Icon name="eye-outline" size={20} style={styles.icon} />
+            <Icon
+              name={showPassword ? "eye-outline" : "eye-off-outline"}
+              size={20}
+              style={styles.icon}
+              onPress={() => setshowPassword(!showPassword)}
+            />
           </View>
         </View>
 
@@ -132,9 +188,8 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    // justifyContent: "center",
-    alignSelf: "flex-start",
     justifyContent: "center",
+    alignSelf: "flex-start",
   },
   footer: {
     width: "100%",
@@ -146,7 +201,7 @@ const styles = StyleSheet.create({
   },
   textHeader: {
     fontFamily: typography.semiBold,
-    fontSize: moderateScale(35),
+    fontSize: moderateScale(40),
     color: Colors.primary,
     marginLeft: horizontalScale(30),
   },
@@ -197,16 +252,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: horizontalScale(10),
     marginBottom: verticalScale(10),
   },
+  phoneNumberInput: {
+    height: verticalScale(50),
+    borderColor: "#E3E3E3",
+    borderWidth: 1,
+    paddingHorizontal: horizontalScale(10),
+    marginBottom: verticalScale(10),
+  },
   passContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: "100%",
-    marginBottom: verticalScale(10),
   },
   icon: {
     position: "absolute",
     right: horizontalScale(10),
     color: "#000",
+    // justifyContent: "center", // Center the icon content
+    // alignItems: "center", // Center the icon content
   },
   optionsContainer: {
     flexDirection: "row",

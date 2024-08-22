@@ -1,4 +1,4 @@
-export const typography = {
+export const TYPOGRAPHY = {
   light: "PlusJakartaSans-Light",
   regular: "PlusJakartaSans-Regular",
   medium: "PlusJakartaSans-Medium",

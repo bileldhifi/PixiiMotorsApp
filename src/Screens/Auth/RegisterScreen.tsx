@@ -14,10 +14,10 @@ import {
   horizontalScale,
   moderateScale,
   verticalScale,
-} from "../Utils/Metrics";
-import { Colors } from "../Styles/colors";
-import { typography } from "../Constants/typography";
-import { Images } from "../Constants/image";
+} from "../../Utils/Metrics";
+import { Colors } from "../../Styles/colors";
+import { TYPOGRAPHY } from "../../Constants/typography";
+import { IMAGES } from "../../Constants/image";
 import LinearGradient from "react-native-linear-gradient";
 import { ScrollView } from "react-native-gesture-handler";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -159,7 +159,7 @@ const RegisterScreen = ({navigation}:any) => {
           end={{ x: 0, y: 1 }}
           style={styles.gradient}
         >
-          <TouchableOpacity style={styles.loginButton} onPress={() => {}}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => {navigation.navigate('singin')}}>
             <Text style={styles.loginButtonText}>Register</Text>
           </TouchableOpacity>
         </LinearGradient>
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
   },
   textHeader: {
-    fontFamily: typography.semiBold,
+    fontFamily: TYPOGRAPHY.semiBold,
     fontSize: moderateScale(40),
     color: Colors.primary,
     marginLeft: horizontalScale(30),
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(5),
   },
   textInput: {
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
     fontSize: moderateScale(13),
     color: Colors.grey,
     marginBottom: verticalScale(4),
@@ -274,11 +274,11 @@ const styles = StyleSheet.create({
   rememberText: {
     marginLeft: horizontalScale(5),
     color: Colors.grey,
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
   },
   forgotPasswordText: {
     color: Colors.blue,
-    fontFamily: typography.semiBold,
+    fontFamily: TYPOGRAPHY.semiBold,
     fontSize: moderateScale(13),
   },
   dateInputContainer: {
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
   },
   loginButtonText: {
     color: "#fff",
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
     fontSize: moderateScale(15),
   },
   separatorContainer: {

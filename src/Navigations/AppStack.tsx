@@ -5,20 +5,20 @@ import { NavigationContainer } from "@react-navigation/native";
 import BottomTab from "./BottomTab";
 import AuthStack from "./AuthStack";
 
-const Stack = createStackNavigator();
+const Stackk = createStackNavigator();
 
 const AppStack = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stackk.Navigator screenOptions={{ headerShown: false }}>
         {isAuthenticated ? (
-          <Stack.Screen name="BottomTab" component={BottomTab} />
+          <Stackk.Screen name="BottomTab" component={BottomTab} />
         ) : (
-          <Stack.Screen name="AuthStack" component={AuthStack} />
+          <Stackk.Screen name="AuthStack" component={AuthStack} />
         )}
-      </Stack.Navigator>
+      </Stackk.Navigator>
     </NavigationContainer>
   );
 };

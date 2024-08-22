@@ -1,14 +1,11 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { Images } from "../Constants/image";
-import { typography } from "../Constants/typography";
-import { Colors } from "../Styles/colors";
-import {
-  horizontalScale,
-  moderateScale,
-  verticalScale,
-} from "../Utils/Metrics";
+import { horizontalScale, moderateScale, verticalScale } from "../../Utils/Metrics";
+import { Colors } from "../../Styles/colors";
+import { IMAGES } from "../../Constants/image";
+import { TYPOGRAPHY } from "../../Constants/typography";
+
 
 const HomeHeader = () => {
   return (
@@ -43,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: verticalScale(15),
     flexDirection: "column",
-    backgroundColor: Images.headerBackground,
+    backgroundColor: IMAGES.headerBackground,
     height: verticalScale(120),
     marginBottom: 0,
     paddingBottom: 0,
@@ -61,13 +58,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.primary,
-    fontFamily: typography.light,
+    fontFamily: TYPOGRAPHY.light,
     fontSize: moderateScale(20),
   },
   subTitle: {
     color: Colors.primary,
     fontSize: moderateScale(30),
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
   },
   rightSideWrapper: {
     alignSelf: "flex-start",
@@ -95,7 +92,7 @@ const styles = StyleSheet.create({
   statusIcon: { paddingRight: horizontalScale(5)},
   statusText: {
     color: Colors.status,
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
     fontSize: moderateScale(12),
   },
 });

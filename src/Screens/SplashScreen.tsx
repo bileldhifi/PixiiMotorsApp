@@ -1,13 +1,13 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import {Images} from '../Constants/image'
+import {IMAGES} from '../Constants/image'
 
 const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Your App Title</Text>
       <Image
-        source={Images.SplashImage}
+        source={IMAGES.SplashImage}
         style={styles.image}
       />
     </View>

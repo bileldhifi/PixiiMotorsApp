@@ -1,14 +1,14 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { typography } from "../Constants/typography";
-import { Colors } from "../Styles/colors";
-import { Fonts } from "../Styles/fonts";
+import { TYPOGRAPHY } from "../../Constants/typography";
+import { Colors } from "../../Styles/colors";
+import { Fonts } from "../../Styles/fonts";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
-} from "../Utils/Metrics";
+} from "../../Utils/Metrics";
 
 const WeatherCard = () => {
   return (
@@ -49,14 +49,14 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: Fonts.primary,
     color: Colors.primary,
-    fontFamily: typography.regular,
+    fontFamily: TYPOGRAPHY.regular,
     flex: 1,
   },
   topPart: { flex: 1 },
   subText: {
     fontSize: Fonts.primary,
     color: Colors.primary,
-    fontFamily: typography.regular,
+    fontFamily: TYPOGRAPHY.regular,
   },
   batteryContainer: {
     flexDirection: "row",
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   batteryLevel: {
     fontSize: moderateScale(40),
     color: Colors.primary,
-    fontFamily: typography.light,
+    fontFamily: TYPOGRAPHY.light,
     flex : 1
   },
   icon : {color : Colors.primary,

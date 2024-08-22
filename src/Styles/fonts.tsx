@@ -5,7 +5,7 @@ import {
   verticalScale,
   moderateScale,
 } from "../Utils/Metrics";
-import { typography } from "../Constants/typography";
+import { TYPOGRAPHY } from "../Constants/typography";
 
 export const Fonts = {
   primary: moderateScale(18),

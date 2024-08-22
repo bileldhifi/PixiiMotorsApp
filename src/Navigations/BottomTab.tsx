@@ -1,19 +1,17 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React, { Component } from "react";
-import HomeStack from "./HomeStack";
-import MapStack from "./MapStack";
+import { StyleSheet } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import CustomTabHeader from "../Component/Main/CustomTabHeader";
+import { TYPOGRAPHY } from "../Constants/typography";
+import HomeScreen from "../Screens/Main/Home/HomeScreen";
+import Notification from "../Screens/Main/Notification/NotificationScreen";
+import ScanCodeScreen from "../Screens/Main/Qrcode/ScanCodeScreen";
+import Setting from "../Screens/Main/Setting/SettingScreen";
+import Support from "../Screens/Main/Support/SupportScreen";
 import { Colors } from "../Styles/colors";
 import { moderateScale, verticalScale } from "../Utils/Metrics";
-import Support from "../Screens/SupportScreen";
-import Notification from "../Screens/NotificationScreen";
-import Setting from "../Screens/SettingScreen";
-import { StyleSheet } from "react-native";
-import { typography } from "../Constants/typography";
-import CustomTabHeader from "../Component/CustomTabHeader";
-import QrcodeScreen from "../Screens/QrcodeScreen";
-import ScanCode from "../Screens/ScanCodeScreen";
-import QrCodeStack from "./QrCodeStack";
+import { NavigationContainer } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +31,7 @@ export default class BottomTab extends Component {
           tabBarStyle: {
             backgroundColor: Colors.globalBg,
             height: verticalScale(130),
-            borderTopWidth : 0
+            borderTopWidth: 0,
           },
         }}
       >
@@ -51,12 +49,11 @@ export default class BottomTab extends Component {
                 size={verticalScale(40)}
               />
             ),
-            
           }}
         />
         <Tab.Screen
           name="Scan QrCode"
-          component={QrCodeStack}
+          component={ScanCodeScreen}
           options={{
             headerShown: true,
             tabBarIcon: ({ color, size }) => (
@@ -72,8 +69,8 @@ export default class BottomTab extends Component {
           }}
         />
         <Tab.Screen
-          name="HomeStack"
-          component={HomeStack}
+          name="HomeScreen"
+          component={HomeScreen}
           options={{
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
@@ -82,11 +79,10 @@ export default class BottomTab extends Component {
                 size={verticalScale(60)}
               />
             ),
-            
+
             tabBarItemStyle: { marginBottom: verticalScale(30) },
-            
           }}
-        />  
+        />
         <Tab.Screen
           name="Notifications"
           component={Notification}
@@ -104,7 +100,7 @@ export default class BottomTab extends Component {
               />
             ),
           }}
-        /> 
+        />
         <Tab.Screen
           name="Setting"
           component={Setting}
@@ -128,13 +124,11 @@ const styles = StyleSheet.create({
   headerStyles: {
     backgroundColor: Colors.globalBg,
     height: verticalScale(110),
-
   },
   headerTitle: {
     fontSize: moderateScale(30),
     justifyContent: "center",
     color: Colors.primary,
-    fontFamily: typography.semiBold,
-
+    fontFamily: TYPOGRAPHY.semiBold,
   },
 });

@@ -8,10 +8,10 @@ import {
   useCameraPermission,
   useCodeScanner,
 } from "react-native-vision-camera";
-import ErrorCamera from "./ErrorCamera";
+import ErrorCamera from "../ErrorCamera";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { moderateScale, verticalScale } from "../Utils/Metrics";
-import { Colors } from "../Styles/colors";
+import { moderateScale, verticalScale } from "../../../Utils/Metrics";
+import { Colors } from "../../../Styles/colors";
 import Reanimated, {
   Extrapolation,
   interpolate,

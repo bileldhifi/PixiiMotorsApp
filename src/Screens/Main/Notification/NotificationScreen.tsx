@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import NotificationListItem from "../Component/NotificationListItem";
-import { Colors } from "../Styles/colors";
+import { Colors } from "../../../Styles/colors";
+import NotificationListItem from "../../../Component/Notification/NotificationListItem";
 
 const Notification = () => {
   return (

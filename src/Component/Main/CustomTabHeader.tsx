@@ -7,9 +7,9 @@ import {
   horizontalScale,
   moderateScale,
   verticalScale,
-} from "../Utils/Metrics";
-import { Colors } from "../Styles/colors";
-import { typography } from "../Constants/typography";
+} from "../../Utils/Metrics";
+import { Colors } from "../../Styles/colors";
+import { TYPOGRAPHY } from "../../Constants/typography";
 
 type CustomHeaderProps = {
   icon: string;
@@ -48,20 +48,17 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: verticalScale(10),
     paddingLeft: 0,
-
   },
   leftContainer: {
     flexDirection: "row",
     alignItems: "center",
     paddingLeft: 0,
-
   },
   title: {
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
     color: "white",
     fontSize: moderateScale(35),
     marginLeft: horizontalScale(10),
     paddingLeft: 0,
-
   },
 });

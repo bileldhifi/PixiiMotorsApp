@@ -1,29 +1,27 @@
-import "./gesture-handler";
-import React, { useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
-import HomeHeader from "./src/Component/HomeHeader";
-import Home from "./src/Screens/HomeScreen";
-import { Colors } from "./src/Styles/colors";
-import { NavigationContainer } from "@react-navigation/native";
+import React, { useEffect } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
 import BootSplash from "react-native-bootsplash";
-import AuthStack from "./src/Navigations/AuthStack";
-import HomeStack from "./src/Navigations/HomeStack";
-import LaunchStack from "./src/Navigations/AppStack";
-import LoginHolder from "./src/Screens/LoginHolder";
+import "./gesture-handler";
+import BottomTab from "./src/Navigations/BottomTab";
+import { NavigationContainer } from "@react-navigation/native";
+import LoginHolder from "./src/Screens/Auth/LoginHolder";
+import HomeCard from "./src/Component/Main/HomeCard";
+import HomeScreen from "./src/Screens/Main/Home/HomeScreen";
+import QrcodeScreen from "./src/Screens/Main/Qrcode/QrcodeScreen";
+import ScanCodeScreen from "./src/Screens/Main/Qrcode/ScanCodeScreen";
 
 const App = () => {
   useEffect(() => {
-    const init = async () => {
-    
-    };
+    const init = async () => {};
     init().finally(async () => {
       await BootSplash.hide({ fade: true });
     });
   }, []);
 
-
   return (
-      <LoginHolder />
+    <SafeAreaView style={{ flex: 1 }}>
+        <ScanCodeScreen />
+    </SafeAreaView>
   );
 };
 export default App;

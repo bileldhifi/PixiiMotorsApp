@@ -16,8 +16,8 @@ import {
   verticalScale,
 } from "../Utils/Metrics";
 import { Fonts } from "../Styles/fonts";
-import { Images } from "../Constants/image";
-import { typography } from "../Constants/typography";
+import { IMAGES } from "../Constants/image";
+import { TYPOGRAPHY } from "../Constants/typography";
 
 const ToggleButton = () => {
   const [isLocked, setIsLocked] = useState(true);
@@ -47,7 +47,7 @@ const ToggleButton = () => {
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
         <View style={[styles.button, styles.leftButton]}>
-          <Image source={Images.pixiiLogo} style={styles.logo} />
+          <Image source={IMAGES.pixiiLogo} style={styles.logo} />
         </View>
         <View style={[styles.button, styles.rightButton]}>
           {isLocked ? (
@@ -126,13 +126,13 @@ const styles = StyleSheet.create({
   lockText: {
     color: "white",
     fontSize: Fonts.primary,
-    fontFamily: typography.regular,
+    fontFamily: TYPOGRAPHY.regular,
     marginLeft: horizontalScale(10),
   },
   unlockText: {
     color: "white",
     fontSize: Fonts.primary,
-    fontFamily: typography.regular,
+    fontFamily: TYPOGRAPHY.regular,
     marginRight: horizontalScale(10),
   },
   swipeButton: {

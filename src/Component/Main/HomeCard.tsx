@@ -1,14 +1,10 @@
 import { Pressable, StyleSheet, Text, View, ViewStyle } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { Colors } from "../Styles/colors";
-import { Fonts } from "../Styles/fonts";
-import {
-  horizontalScale,
-  verticalScale,
-  moderateScale,
-} from "../Utils/Metrics";
-import { typography } from "../Constants/typography";
+import { horizontalScale } from "../../Utils/Metrics";
+import { TYPOGRAPHY } from "../../Constants/typography";
+import { Colors } from "../../Styles/colors";
+import { Fonts } from "../../Styles/fonts";
 
 type HomeCardProps = {
   title: string;
@@ -40,7 +36,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: Fonts.primary,
     color: Colors.primary,
-    fontFamily: typography.regular,
+    fontFamily: TYPOGRAPHY.regular,
     flex: 1,
   },
 });

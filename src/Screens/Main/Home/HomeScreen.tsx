@@ -8,13 +8,13 @@ import {
   UIManager,
   View,
 } from "react-native";
-import BatteryCard from "../Component/BatteryCard";
-import HomeCard from "../Component/HomeCard";
-import HomeHeader from "../Component/HomeHeader";
-import WeatherCard from "../Component/WeatherCard";
-import { Images } from "../Constants/image";
-import { Colors } from "../Styles/colors";
-import { horizontalScale, verticalScale } from "../Utils/Metrics";
+import BatteryCard from "../../../Component/Main/BatteryCard";
+import HomeCard from "../../../Component/Main/HomeCard";
+import HomeHeader from "../../../Component/Main/HomeHeader";
+import WeatherCard from "../../../Component/Main/WeatherCard";
+import { IMAGES } from "../../../Constants/image";
+import { Colors } from "../../../Styles/colors";
+import { horizontalScale, verticalScale } from "../../../Utils/Metrics";
 import SwipeButton from "rn-swipe-button";
 import { ScrollView } from "react-native-gesture-handler";
 const HomeScreen = () => {

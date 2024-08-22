@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import { ListItem } from "@rneui/themed";
 import { Button } from "@rneui/themed";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { typography } from "../Constants/typography";
-import { moderateScale, verticalScale } from "../Utils/Metrics";
-import { Colors } from "../Styles/colors";
+import { TYPOGRAPHY } from "../../Constants/typography";
+import { moderateScale, verticalScale } from "../../Utils/Metrics";
+import { Colors } from "../../Styles/colors";
 
 export default class NotificationListItem extends Component {
   render() {
@@ -64,19 +64,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontFamily: typography.semiBold,
+    fontFamily: TYPOGRAPHY.semiBold,
     color: Colors.primary,
     fontSize: moderateScale(18),
   },
   subTitle: {
-    fontFamily: typography.light,
+    fontFamily: TYPOGRAPHY.light,
     color: Colors.grey,
     fontSize: moderateScale(13),
     marginTop: verticalScale(5),
 
   },
   description: {
-    fontFamily: typography.light,
+    fontFamily: TYPOGRAPHY.light,
     color: Colors.grey,
     fontSize: moderateScale(13),
     marginTop: verticalScale(20),

@@ -7,15 +7,15 @@ import {
   ImageBackground,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { Colors } from "../Styles/colors";
+import { Colors } from "../../Styles/colors";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
-} from "../Utils/Metrics";
-import { Fonts } from "../Styles/fonts";
-import { Images } from "../Constants/image";
-import { typography } from "../Constants/typography";
+} from "../../Utils/Metrics";
+import { Fonts } from "../../Styles/fonts";
+import { IMAGES } from "../../Constants/image";
+import { TYPOGRAPHY } from "../../Constants/typography";
 
 interface BatteryCardProps {
   expanded: boolean;
@@ -28,7 +28,7 @@ const BatteryCard: React.FC<BatteryCardProps> = ({
 }) => {
   return (
     <View >
-      <ImageBackground source={Images.scooterLogo} style={styles.imageBg}>
+      <ImageBackground source={IMAGES.scooterLogo} style={styles.imageBg}>
         <View style={styles.container}>
           {!expanded && (
             <>
@@ -119,12 +119,12 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     paddingVertical: verticalScale(5),
     fontSize: Fonts.primary,
-    fontFamily: typography.regular,
+    fontFamily: TYPOGRAPHY.regular,
   },
   batterySubText: {
     color: Colors.icon,
     fontSize: Fonts.secondary,
     paddingVertical: verticalScale(5),
-    fontFamily: typography.semiBold,
+    fontFamily: TYPOGRAPHY.semiBold,
   },
 });

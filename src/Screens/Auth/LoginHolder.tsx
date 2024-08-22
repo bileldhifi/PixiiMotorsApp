@@ -12,26 +12,25 @@ import {
   horizontalScale,
   moderateScale,
   verticalScale,
-} from "../Utils/Metrics";
-import { Colors } from "../Styles/colors";
-import { typography } from "../Constants/typography";
-import { Images } from "../Constants/image";
+} from "../../Utils/Metrics";
+import { Colors } from "../../Styles/colors";
 import LinearGradient from "react-native-linear-gradient";
 import { Screen } from "react-native-screens";
 import LoginScreen from "./LoginScreen";
 import RegisterScreen from "./RegisterScreen";
+import { TYPOGRAPHY } from "../../Constants/typography";
 
-let currentScreen = "login";
+// let currentScreen = "login";
 
 const LoginHolder = () => {
-  const [isLoginScreen, setIsLoginScreen] = useState(true); // State to manage the current screen
+  const [isLoginScreen, setIsLoginScreen] = useState(true);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.textHeader}>Get Started</Text>
       </View>
       <View style={styles.footer}>
-      <View style={styles.tabContainer}>
+        <View style={styles.tabContainer}>
           <TouchableOpacity
             style={[styles.tab, isLoginScreen && styles.activeTab]}
             onPress={() => setIsLoginScreen(true)}
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
   },
   textHeader: {
-    fontFamily: typography.semiBold,
+    fontFamily: TYPOGRAPHY.semiBold,
     fontSize: moderateScale(40),
     color: Colors.primary,
     marginLeft: horizontalScale(30),
@@ -93,13 +92,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
 
-
   inputWrapper: {
     flexDirection: "column",
     marginVertical: verticalScale(5),
   },
   textInput: {
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
     fontSize: moderateScale(13),
     color: Colors.grey,
     marginBottom: verticalScale(4),
@@ -138,11 +136,11 @@ const styles = StyleSheet.create({
   rememberText: {
     marginLeft: horizontalScale(5),
     color: Colors.grey,
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
   },
   forgotPasswordText: {
     color: Colors.blue,
-    fontFamily: typography.semiBold,
+    fontFamily: TYPOGRAPHY.semiBold,
     fontSize: moderateScale(13),
   },
   loginButton: {
@@ -153,7 +151,7 @@ const styles = StyleSheet.create({
   },
   loginButtonText: {
     color: "#fff",
-    fontFamily: typography.medium,
+    fontFamily: TYPOGRAPHY.medium,
     fontSize: moderateScale(15),
   },
   separatorContainer: {
@@ -194,16 +192,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 
-// tab style
+  // tab style
 
   tabContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
-    borderTopLeftRadius : 8,
-    borderTopRightRadius : 8,
-    borderBottomLeftRadius : 8,
-    borderBottomRightRadius : 8,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   tabText: {
     color: "black",
@@ -211,22 +209,20 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    paddingVertical : verticalScale(10),
+    paddingVertical: verticalScale(10),
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor : '#F5F6F9',
-    borderTopLeftRadius : 8,
-    borderTopRightRadius : 8,
-    borderBottomLeftRadius : 8,
-    borderBottomRightRadius : 8,
+    backgroundColor: "#F5F6F9",
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
   activeTabText: {
-    color: 'black',
-    fontFamily: typography.semiBold,
+    color: "black",
+    fontFamily: TYPOGRAPHY.semiBold,
   },
   activeTab: {
-    backgroundColor : 'white',
-
-
+    backgroundColor: "white",
   },
 });

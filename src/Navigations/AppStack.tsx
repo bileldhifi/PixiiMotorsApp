@@ -1,24 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
-import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import { StyleSheet } from "react-native";
+import LoginHolder from "../Screens/Auth/LoginHolder";
+import QrcodeScreen from "../Screens/Main/Qrcode/QrcodeScreen";
+import ScanCodeScreen from "../Screens/Main/Qrcode/ScanCodeScreen";
 import BottomTab from "./BottomTab";
-import AuthStack from "./AuthStack";
 
-const Stackk = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-
   return (
     <NavigationContainer>
-      <Stackk.Navigator screenOptions={{ headerShown: false }}>
-        {isAuthenticated ? (
-          <Stackk.Screen name="BottomTab" component={BottomTab} />
-        ) : (
-          <Stackk.Screen name="AuthStack" component={AuthStack} />
-        )}
-      </Stackk.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Login" component={LoginHolder} />
+        <Stack.Screen name="ScanCodeScreen" component={ScanCodeScreen} />
+        <Stack.Screen name="QrcodeScreen" component={QrcodeScreen} />
+        <Stack.Screen name="BottomTab" component={BottomTab} options={{ headerShown: false }} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

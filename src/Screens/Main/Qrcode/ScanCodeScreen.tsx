@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ImageBackground,
+  Button,
 } from "react-native";
 import { IMAGES } from "../../../Constants/image";
 import {
@@ -15,7 +16,9 @@ import {
 } from "../../../Utils/Metrics";
 import { TYPOGRAPHY } from "../../../Constants/typography";
 
-const ScanCodeScreen = () => {
+
+
+const ScanCodeScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       {/* QR Code Section */}
@@ -38,11 +41,17 @@ const ScanCodeScreen = () => {
           <Text style={styles.orText}>or</Text>
           <Text style={styles.title}>Enter Vehicle ID</Text>
           <Text style={styles.subtitle}>Vehicle ID</Text>
-          <TextInput
+          <TouchableOpacity
             style={styles.input}
-            placeholder="Write your Vehicle ID consisting of 8 characters..."
-            placeholderTextColor="#888"
-          />
+            onPress={() => {
+              navigation.navigate("BottomTab");
+            }}
+          >
+            <Text>Write your Vehicle ID consisting of 8 characters..</Text>
+          </TouchableOpacity>
+          <Button title="click"   onPress={() => {
+              navigation.navigate("Login");
+            }}></Button>
           <TouchableOpacity style={styles.helpWrapper}>
             <Text style={styles.helpText}>Where can I find this?</Text>
           </TouchableOpacity>
@@ -88,7 +97,7 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(25),
     alignSelf: "flex-start",
     marginTop: verticalScale(30),
-    fontFamily : TYPOGRAPHY.medium
+    fontFamily: TYPOGRAPHY.medium,
   },
   vehicleImageBackground: {
     width: "100%",
@@ -110,8 +119,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 15,
     marginTop: verticalScale(60),
-    marginBottom : verticalScale(10)
-
+    marginBottom: verticalScale(10),
   },
   input: {
     width: "100%",

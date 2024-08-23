@@ -26,7 +26,13 @@ export const Colors = {
     grey : '#767676',
     black : '#021526',
     //login page 
-    blue : '#4D81E7'
+    blue : '#4D81E7',
+
+
+
+    //----------------//
+    white : '#FFFFFF',
+    mainGreen : '#00FF65',
 }
 
 

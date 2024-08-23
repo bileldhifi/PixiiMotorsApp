@@ -9,6 +9,9 @@ import HomeCard from "./src/Component/Main/HomeCard";
 import HomeScreen from "./src/Screens/Main/Home/HomeScreen";
 import QrcodeScreen from "./src/Screens/Main/Qrcode/QrcodeScreen";
 import ScanCodeScreen from "./src/Screens/Main/Qrcode/ScanCodeScreen";
+import BatteryCard from "./src/Component/Main/BatteryCard";
+import AchievementCard from "./src/Component/Card/AchievementCard";
+import alert from "./src/Component/Alert/zab";
 
 const App = () => {
   useEffect(() => {
@@ -20,7 +23,15 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-        <ScanCodeScreen />
+      
+      {/* <AchievementCard
+        title={"Ride 5 000 Km"}
+        icon={"navigation-variant-outline"}
+        checkIcon={"check-bold"}
+        badgeText={"Silver Badge"}
+        descriptionText={"Earned 24/07/2024"}
+        value={0.7}
+      /> */}
     </SafeAreaView>
   );
 };

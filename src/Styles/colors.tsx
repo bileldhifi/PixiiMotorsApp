@@ -33,6 +33,7 @@ export const Colors = {
     //----------------//
     white : '#FFFFFF',
     mainGreen : '#00FF65',
+    red:'red'
 }
 
 

@@ -3,14 +3,12 @@ import { Button, SafeAreaView, StyleSheet } from "react-native";
 import BootSplash from "react-native-bootsplash";
 import "./gesture-handler";
 import ToastComponent, { showToast } from "./src/Component/Alert/Toast";
+import ProfileScreen from "./src/Screens/Main/Profile/ProfileScreen";
 
+const handlePress = () => {
+  showToast("success", "Operation Successful", "Your action was successful!");
+};
 
-
-  const handlePress = () => {
-    showToast('success', 'Operation Successful', 'Your action was successful!');
-  };
-
-  
 const App = () => {
   useEffect(() => {
     const init = async () => {};
@@ -21,8 +19,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Button title="Show Success Toast" onPress={handlePress} />
-      <ToastComponent />
+      <ProfileScreen />
     </SafeAreaView>
   );
 };

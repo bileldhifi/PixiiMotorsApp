@@ -4,6 +4,8 @@ import BootSplash from "react-native-bootsplash";
 import "./gesture-handler";
 import ToastComponent, { showToast } from "./src/Component/Alert/Toast";
 import ProfileScreen from "./src/Screens/Main/Profile/ProfileScreen";
+import ProfileEditScreen from "./src/Screens/Main/Profile/ProfileEditScreen";
+import LoginHolder from "./src/Screens/Auth/LoginHolder";
 
 const handlePress = () => {
   showToast("success", "Operation Successful", "Your action was successful!");
@@ -19,7 +21,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ProfileScreen />
+      <LoginHolder />
     </SafeAreaView>
   );
 };

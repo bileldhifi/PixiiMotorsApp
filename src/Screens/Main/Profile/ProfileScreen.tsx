@@ -5,6 +5,7 @@ import { moderateScale, verticalScale } from "../../../Utils/Metrics";
 import { Colors } from "../../../Styles/colors";
 import { TYPOGRAPHY } from "../../../Constants/typography";
 import LinearGradient from "react-native-linear-gradient";
+import Divider from "../../../Component/Divider/Divider";
 
 const ProfileScreen = () => {
   return (
@@ -14,7 +15,7 @@ const ProfileScreen = () => {
         <Icon
           name="account"
           size={moderateScale(60)}
-          color="#fff"
+          color={Colors.white}
           style={styles.profileIcon}
         />
 
@@ -36,12 +37,7 @@ const ProfileScreen = () => {
       </View>
 
       {/* Divider Line */}
-      <LinearGradient
-        colors={["#000000", "#5A5A5A", "#000000"]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
-        style={styles.divider}
-      />
+      <Divider />
 
       {/* Body Container */}
       <View style={styles.bodyContainer}>
@@ -106,10 +102,5 @@ const styles = StyleSheet.create({
   logoutText: {
     fontSize: moderateScale(16),
     color: Colors.red,
-  },
-  divider: {
-    height: 2, // Adjust the height as necessary
-    width: "100%", // Full width
-    marginVertical: verticalScale(30), // Adjust the vertical margin as necessary
   },
 });

@@ -24,7 +24,7 @@ export const Colors = {
 
     //grey
     grey : '#767676',
-    black : '#021526',
+    black : '#000000',
     //login page 
     blue : '#4D81E7',
 
@@ -33,7 +33,8 @@ export const Colors = {
     //----------------//
     white : '#FFFFFF',
     mainGreen : '#00FF65',
-    red:'red'
+    red:'red',
+    inputBackground : '#2D2D2D'
 }
 
 

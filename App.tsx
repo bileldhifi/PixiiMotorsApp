@@ -6,6 +6,9 @@ import ToastComponent, { showToast } from "./src/Component/Alert/Toast";
 import ProfileScreen from "./src/Screens/Main/Profile/ProfileScreen";
 import ProfileEditScreen from "./src/Screens/Main/Profile/ProfileEditScreen";
 import LoginHolder from "./src/Screens/Auth/LoginHolder";
+import Modal from "./src/Component/Modal/CustomModal";
+import Dialog from "./src/Component/Modal/CustomModal";
+import CustomModal from "./src/Component/Modal/CustomModal";
 
 const handlePress = () => {
   showToast("success", "Operation Successful", "Your action was successful!");
@@ -21,7 +24,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <LoginHolder />
+      <ProfileEditScreen />
     </SafeAreaView>
   );
 };

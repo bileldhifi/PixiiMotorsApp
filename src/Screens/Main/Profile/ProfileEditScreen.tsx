@@ -74,7 +74,7 @@ const ProfileEditScreen = () => {
             <Text style={styles.label}>Phone Number</Text>
             <TextInput
               style={styles.input}
-              placeholder="+216 9911222" // Replace with dynamic data if needed
+              placeholder="+216 9911222" 
               placeholderTextColor={Colors.white}
             />
           </View>
@@ -83,12 +83,12 @@ const ProfileEditScreen = () => {
           <View style={[styles.inputContainer, styles.passwordInputContainer]}>
             <TextInput
               style={styles.input}
-              placeholder="Old Password/Verification Code" // Replace with dynamic data if needed
+              placeholder="Old Password/Verification Code" 
               placeholderTextColor={Colors.white}
             />
             <Icon
               name="help-circle-outline"
-              size={moderateScale(30)}
+              size={30}
               color={Colors.white}
               style={styles.iconStyle}
               onPress={toggleModal}
@@ -98,14 +98,14 @@ const ProfileEditScreen = () => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="Confirm New Password" // Replace with dynamic data if needed
+              placeholder="Confirm New Password" 
               placeholderTextColor={Colors.white}
             />
           </View>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="New Password" // Replace with dynamic data if needed
+              placeholder="New Password" 
               placeholderTextColor={Colors.white}
             />
           </View>
@@ -115,7 +115,7 @@ const ProfileEditScreen = () => {
       </ScrollView>
       <CustomModal
         isVisible={isModalVisible}
-        onClose={toggleModal} // Close the modal when the backdrop is pressed
+        onClose={toggleModal} 
       />
     </View>
   );

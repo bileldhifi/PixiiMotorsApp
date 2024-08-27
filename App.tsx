@@ -9,6 +9,10 @@ import LoginHolder from "./src/Screens/Auth/LoginHolder";
 import Modal from "./src/Component/Modal/CustomModal";
 import Dialog from "./src/Component/Modal/CustomModal";
 import CustomModal from "./src/Component/Modal/CustomModal";
+import CustomTabHeader from "./src/Component/Main/CustomTabHeader";
+import Notification from "./src/Screens/Main/Notification/NotificationScreen";
+import ScreenHeader from "./src/Component/Header/ScreenHeader";
+import NotificationListItem from "./src/Component/Notification/NotificationListItem";
 
 const handlePress = () => {
   showToast("success", "Operation Successful", "Your action was successful!");
@@ -24,7 +28,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ProfileEditScreen />
+      <Notification/>
     </SafeAreaView>
   );
 };

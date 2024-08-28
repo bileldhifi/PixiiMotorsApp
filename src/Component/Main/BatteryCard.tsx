@@ -6,7 +6,6 @@ import {
   Text,
   View,
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IMAGES } from "../../Constants/image";
 import { TYPOGRAPHY } from "../../Constants/typography";
 import { Colors } from "../../Styles/colors";
@@ -16,6 +15,9 @@ import {
   moderateScale,
   verticalScale,
 } from "../../Utils/Metrics";
+import Iconn from "react-native-vector-icons/MaterialIcons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { color } from "@rneui/base";
 
 interface BatteryCardProps {
   expanded: boolean;
@@ -79,7 +81,15 @@ const BatteryCard: React.FC<BatteryCardProps> = ({
             </View>
             <View style={styles.batteryWrapper}>
               <Text style={styles.batteryText}>Mode</Text>
+              <View style={{ flexDirection: "row" }}>
+                <Iconn
+                  name="eco"
+                  size={moderateScale(30)}
+                  color={Colors.mainGreen}
+                  style={styles.modeIcon}
+                />
               <Text style={styles.batterySubText}>Eco</Text>
+              </View>
             </View>
           </View>
         </>
@@ -138,4 +148,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  modeIcon:{
+    alignSelf : 'center'
+  }
 });

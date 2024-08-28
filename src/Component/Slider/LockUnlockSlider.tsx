@@ -1,10 +1,10 @@
-/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Animated, PanResponder, Dimensions, Image } from 'react-native';
+import { IMAGES } from '../../Constants/image';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SLIDER_WIDTH = SCREEN_WIDTH * 0.8;
-const SLIDER_BUTTON_SIZE = 60;
+const SLIDER_BUTTON_SIZE = 150;
 
 const LockUnlockSlider = () => {
     const [isLocked, setIsLocked] = useState(true);
@@ -26,6 +26,7 @@ const LockUnlockSlider = () => {
                 }).start(() => {
                     setIsLocked(false);
                 });
+                
             } else {
                 Animated.spring(pan, {
                     toValue: { x: 0, y: 0 },
@@ -45,20 +46,20 @@ const LockUnlockSlider = () => {
                     {...panResponder.panHandlers}
                 >
                     {isLocked ? (
-                        <Image source={require('../../assets/images/SliderOpen.png')} style={styles.buttonIcon} />
+                        <Image source={IMAGES.pixiiLogo} style={styles.buttonIcon} />
                     ) : (
-                        <Image source={require('../../assets/images/lock.png')} style={styles.buttonIcon} />
+                        <Image source={IMAGES.Lock} style={styles.buttonIcon} />
                     )}
                 </Animated.View>
                 <View style={styles.textContainer}>
                     {isLocked ? (
                         <>
                             <Text style={styles.unlockText}>Unlock</Text>
-                            <Image source={require('../../assets/images/lock-open.png')} style={styles.icon} />
+                            <Image source={IMAGES.LockOpen} style={styles.icon} />
                         </>
                     ) : (
                         <>
-                            <Image source={require('../../assets/images/leftArrow.png')} style={styles.icon} />
+                            <Image source={IMAGES.arrow} style={styles.icon} />
                             <Text style={styles.lockText}>Lock</Text>
                         </>
                     )}
@@ -71,31 +72,32 @@ const LockUnlockSlider = () => {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        marginVertical: 20,
+        marginVertical: 10,
     },
     track: {
-        width: 380,
-        height: 80,
+        width: SLIDER_WIDTH,
+        height: 75,
         borderRadius: 8,
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 10,
     },
     trackLocked: {
         backgroundColor: '#2D2D2D',
-        borderWidth: 2, // Added border width
-        borderStartColor: '#fff', // Added border color
+        borderWidth: 0.3,
+        borderColor: '#fff',
     },
     trackUnlocked: {
         backgroundColor: '#000',
-        borderWidth: 2, // Added border width
-        borderEndColor: '#fff', // Added border color
+        borderWidth: 0.3,
+        borderColor: '#fff',
     },
     sliderButton: {
-        position: 'relative',
-        width: 100,
-        height: 75,
-        borderRadius: 10,
+        width: SLIDER_BUTTON_SIZE,
+        height: SLIDER_BUTTON_SIZE,
         backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
@@ -104,37 +106,34 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 2.62,
         elevation: 4,
-        borderBlockStartColor: '#fff',
-
     },
     buttonIcon: {
-        width: 40, // Adjust to your image size
+        width: 40,
         height: 40,
         resizeMode: 'contain',
     },
     textContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        position: 'absolute',
-        left: SLIDER_BUTTON_SIZE + 20,
-        right: 200,
+        justifyContent: 'space-between',
+        flex: 1,
+        paddingHorizontal: 10,
     },
     icon: {
         width: 30,
         height: 30,
-        marginLeft: 10,
         resizeMode: 'contain',
+        margin: 2,
     },
     lockText: {
         color: '#fff',
         fontSize: 13,
-        marginRight: 8,
+        margin: 8,
     },
     unlockText: {
-        color: '#00ff00',
-        fontSize: 18,
-        marginRight: 250,
-
+        color: '#767676',
+        fontSize: 13,
+        marginLeft: 5,
     },
 });
 

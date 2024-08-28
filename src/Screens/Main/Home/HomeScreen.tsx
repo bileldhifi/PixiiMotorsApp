@@ -90,9 +90,9 @@ const HomeScreen = () => {
               thumbIconBorderRadius={10}
               shouldResetAfterSuccess= {true}
             /> */}
+          <LockUnlockSlider/>
             </>
           )}
-          {/* <LockUnlockSlider/> */}
         </View>
       </ScrollView>
     </SafeAreaView>

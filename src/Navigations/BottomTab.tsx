@@ -21,7 +21,7 @@ export default class BottomTab extends Component {
     return (
       <Tab.Navigator
         sceneContainerStyle={{}}
-        initialRouteName="HomeStack"
+        initialRouteName="HomeScreen"
         screenOptions={{
           tabBarShowLabel: false,
           headerShown: false,

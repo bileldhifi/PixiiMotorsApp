@@ -6,4 +6,7 @@ export const IMAGES = {
   googleLogo: require("../../Assets/Img/googleLogo.png"),
   scanCodeImg: require("../../Assets/Img/scanCodeImg.png"),
   scooterLogoQrSceen: require("../../Assets/Img/scooterLogoQrSceen.png"),
+  Lock: require("../../Assets/Img/lock.jpg"),
+  LockOpen: require("../../Assets/Img/lockOpen.png"),
+  arrow: require("../../Assets/Img/arrow.png"),
 };

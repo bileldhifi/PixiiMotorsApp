@@ -12,7 +12,7 @@ interface ScreenHeaderProps {
 const ScreenHeader: React.FC<ScreenHeaderProps> = ({ title, icon }) => {
   return (
     <View style={styles.container}>
-      <Icon name={icon} size={35} style={styles.iconStyle} />
+      <Icon name={icon} size={30} style={styles.iconStyle} />
       <Text style={styles.titleText}>{title}</Text>
     </View>
   );
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     color : Colors.white,
     marginHorizontal : horizontalScale(10),
     fontFamily: TYPOGRAPHY.semiBold,
-    fontSize: moderateScale(35),
+    fontSize: moderateScale(30),
   },
 });

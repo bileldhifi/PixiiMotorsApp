@@ -19,5 +19,5 @@ export default Divider
 const styles = StyleSheet.create({  divider: {
     height: 2, // Adjust the height as necessary
     width: "100%", // Full width
-    marginTop: verticalScale(20), // Adjust the vertical margin as necessary
+    marginVertical: verticalScale(20), // Adjust the vertical margin as necessary
   },})

@@ -4,6 +4,7 @@ import {
   LayoutAnimation,
   Platform,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   UIManager,
   View,
@@ -16,7 +17,7 @@ import { IMAGES } from "../../../Constants/image";
 import { Colors } from "../../../Styles/colors";
 import { horizontalScale, verticalScale } from "../../../Utils/Metrics";
 import SwipeButton from "rn-swipe-button";
-import { ScrollView } from "react-native-gesture-handler";
+import LockUnlockSlider from "../../../Component/Slider/LockUnlockSlider";
 const HomeScreen = () => {
   const [expanded, setExpanded] = useState(false);
   const [lock, setLock] = useState(false);
@@ -91,6 +92,7 @@ const HomeScreen = () => {
             /> */}
             </>
           )}
+          {/* <LockUnlockSlider/> */}
         </View>
       </ScrollView>
     </SafeAreaView>

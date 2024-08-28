@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Colors } from "../../../Styles/colors";
-import NotificationListItem from "../../../Component/Notification/NotificationListItem";
+import NotificationListItem from "../../../Component/ListItem/NotificationListItem";
 import ScreenHeader from "../../../Component/Header/ScreenHeader";
 import { horizontalScale } from "../../../Utils/Metrics";
 import Divider from "../../../Component/Divider/Divider";

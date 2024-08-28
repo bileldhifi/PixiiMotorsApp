@@ -49,9 +49,6 @@ const ScanCodeScreen = ({ navigation }: any) => {
           >
             <Text>Write your Vehicle ID consisting of 8 characters..</Text>
           </TouchableOpacity>
-          <Button title="click"   onPress={() => {
-              navigation.navigate("Login");
-            }}></Button>
           <TouchableOpacity style={styles.helpWrapper}>
             <Text style={styles.helpText}>Where can I find this?</Text>
           </TouchableOpacity>

@@ -12,6 +12,7 @@ import Support from "../Screens/Main/Support/SupportScreen";
 import { Colors } from "../Styles/colors";
 import { moderateScale, verticalScale } from "../Utils/Metrics";
 import { NavigationContainer } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +31,7 @@ export default class BottomTab extends Component {
           headerStyle: styles.headerStyles,
           tabBarStyle: {
             backgroundColor: Colors.globalBg,
-            height: verticalScale(130),
+            height: verticalScale(100),
             borderTopWidth: 0,
           },
         }}
@@ -41,13 +42,9 @@ export default class BottomTab extends Component {
           options={{
             headerTitle: () => <CustomTabHeader icon="home" title="Support" />,
             headerStyle: {},
-            headerShown: true,
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="face-agent"
-                color={color}
-                size={verticalScale(40)}
-              />
+              <Icon name="face-agent" color={color} size={verticalScale(30)} />
             ),
           }}
         />
@@ -55,13 +52,9 @@ export default class BottomTab extends Component {
           name="Scan QrCode"
           component={ScanCodeScreen}
           options={{
-            headerShown: true,
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="moped"
-                color={color}
-                size={verticalScale(40)}
-              />
+              <Icon name="moped" color={color} size={verticalScale(30)} />
             ),
             headerTitle: () => (
               <CustomTabHeader icon="moped" title="Scan Qrcode" />
@@ -72,11 +65,12 @@ export default class BottomTab extends Component {
           name="HomeScreen"
           component={HomeScreen}
           options={{
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
+              <Icon
                 name="hexagon-slice-6"
                 color={color}
-                size={verticalScale(60)}
+                size={verticalScale(45)}
               />
             ),
 
@@ -87,17 +81,13 @@ export default class BottomTab extends Component {
           name="Notifications"
           component={Notification}
           options={{
+            headerShown: false,
             headerTitle: () => (
               <CustomTabHeader icon="bell" title="Notifications" />
             ),
 
-            headerShown: true,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="bell"
-                color={color}
-                size={verticalScale(40)}
-              />
+              <Icon name="bell" color={color} size={verticalScale(30)} />
             ),
           }}
         />
@@ -105,13 +95,9 @@ export default class BottomTab extends Component {
           name="Setting"
           component={Setting}
           options={{
-            headerShown: true,
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="cog"
-                color={color}
-                size={verticalScale(40)}
-              />
+              <Icon name="cog" color={color} size={verticalScale(30)} />
             ),
           }}
         />

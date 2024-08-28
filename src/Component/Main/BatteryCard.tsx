@@ -1,21 +1,21 @@
 import React from "react";
 import {
+  ImageBackground,
   Pressable,
   StyleSheet,
   Text,
   View,
-  ImageBackground,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { IMAGES } from "../../Constants/image";
+import { TYPOGRAPHY } from "../../Constants/typography";
 import { Colors } from "../../Styles/colors";
+import { Fonts } from "../../Styles/fonts";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from "../../Utils/Metrics";
-import { Fonts } from "../../Styles/fonts";
-import { IMAGES } from "../../Constants/image";
-import { TYPOGRAPHY } from "../../Constants/typography";
 
 interface BatteryCardProps {
   expanded: boolean;
@@ -27,7 +27,7 @@ const BatteryCard: React.FC<BatteryCardProps> = ({
   toggleExpanded,
 }) => {
   return (
-    <View >
+    <View>
       <ImageBackground source={IMAGES.scooterLogo} style={styles.imageBg}>
         <View style={styles.container}>
           {!expanded && (
@@ -42,13 +42,21 @@ const BatteryCard: React.FC<BatteryCardProps> = ({
               </View>
             </>
           )}
-          <Pressable style={styles.iconRadius} onPress={toggleExpanded}>
-            <Icon
-              name={expanded ? "chevron-up" : "chevron-down"}
-              size={moderateScale(50)}
-              color={expanded ? Colors.cardIcon : "#767676"}
-            />
-          </Pressable>
+          {expanded && (
+            <>
+              <View style={styles.batteryWrapper}></View>
+              <View style={styles.batteryWrapper}></View>
+            </>
+          )}
+          <View style={styles.chevronContainer}>
+            <Pressable style={styles.iconRadius} onPress={toggleExpanded}>
+              <Icon
+                name={expanded ? "chevron-up" : "chevron-down"}
+                size={moderateScale(50)}
+                color={expanded ? Colors.cardIcon : "#767676"}
+              />
+            </Pressable>
+          </View>
         </View>
       </ImageBackground>
 
@@ -85,10 +93,9 @@ export default BatteryCard;
 const styles = StyleSheet.create({
   imageBg: {
     height: verticalScale(200),
-    resizeMode: 'contain',
+    resizeMode: "contain",
     justifyContent: "flex-end",
-    // marginVertical : verticalScale(100),
-    flex : 1
+    flex: 1,
   },
   container: {
     flexDirection: "row",
@@ -107,8 +114,7 @@ const styles = StyleSheet.create({
   batteryWrapper: {
     flexDirection: "column",
     marginVertical: verticalScale(5),
-    flex : 1
-
+    flex: 1,
   },
   iconRadius: {
     margin: 0,
@@ -126,5 +132,10 @@ const styles = StyleSheet.create({
     fontSize: Fonts.secondary,
     paddingVertical: verticalScale(5),
     fontFamily: TYPOGRAPHY.semiBold,
+  },
+  chevronContainer: {
+    width: moderateScale(50),
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

@@ -12,7 +12,13 @@ import CustomModal from "./src/Component/Modal/CustomModal";
 import CustomTabHeader from "./src/Component/Main/CustomTabHeader";
 import Notification from "./src/Screens/Main/Notification/NotificationScreen";
 import ScreenHeader from "./src/Component/Header/ScreenHeader";
-import NotificationListItem from "./src/Component/Notification/NotificationListItem";
+import NotificationListItem from "./src/Component/ListItem/NotificationListItem";
+import AchievementCard from "./src/Component/Card/AchievementCard";
+import AchievementScreen from "./src/Screens/Main/Achievement/AchievementScreen";
+import NotificationScreen from "./src/Screens/Main/Notification/NotificationScreen";
+import BottomTab from "./src/Navigations/BottomTab";
+import { NavigationContainer } from "@react-navigation/native";
+import { Colors } from "./src/Styles/colors";
 
 const handlePress = () => {
   showToast("success", "Operation Successful", "Your action was successful!");
@@ -27,8 +33,10 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Notification/>
+    <SafeAreaView style={{ flex: 1,backgroundColor : Colors.black }}>
+      <NavigationContainer>
+        <BottomTab />
+      </NavigationContainer>
     </SafeAreaView>
   );
 };

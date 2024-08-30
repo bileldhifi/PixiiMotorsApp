@@ -1,15 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Colors } from "../../../Styles/colors";
-import NotificationListItem from "../../../Component/ListItem/NotificationListItem";
-import ScreenHeader from "../../../Component/Header/ScreenHeader";
-import { horizontalScale } from "../../../Utils/Metrics";
+import { StyleSheet, View } from "react-native";
 import Divider from "../../../Component/Divider/Divider";
+import ScreenHeader from "../../../Component/Header/ScreenHeader";
+import NotificationListItem from "../../../Component/ListItem/NotificationListItem";
+import { Colors } from "../../../Styles/colors";
+import { horizontalScale } from "../../../Utils/Metrics";
 
 const Notification = () => {
   return (
     <View style={styles.container}>
-      <ScreenHeader title={"Notifications"} icon={"lock"}/>
+      <ScreenHeader title={"Notifications"} icon={"bell"}/>
       <Divider/>
       <NotificationListItem />
     </View>

@@ -74,7 +74,7 @@ const ProfileEditScreen = () => {
             <Text style={styles.label}>Phone Number</Text>
             <TextInput
               style={styles.input}
-              placeholder="+216 9911222" 
+              placeholder="+216 9911222"
               placeholderTextColor={Colors.white}
             />
           </View>
@@ -83,7 +83,7 @@ const ProfileEditScreen = () => {
           <View style={[styles.inputContainer, styles.passwordInputContainer]}>
             <TextInput
               style={styles.input}
-              placeholder="Old Password/Verification Code" 
+              placeholder="Old Password/Verification Code"
               placeholderTextColor={Colors.white}
             />
             <Icon
@@ -98,14 +98,14 @@ const ProfileEditScreen = () => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="Confirm New Password" 
+              placeholder="Confirm New Password"
               placeholderTextColor={Colors.white}
             />
           </View>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="New Password" 
+              placeholder="New Password"
               placeholderTextColor={Colors.white}
             />
           </View>
@@ -113,10 +113,7 @@ const ProfileEditScreen = () => {
           <Button text="Save" />
         </View>
       </ScrollView>
-      <CustomModal
-        isVisible={isModalVisible}
-        onClose={toggleModal} 
-      />
+      <CustomModal isVisible={isModalVisible} onClose={toggleModal} />
     </View>
   );
 };

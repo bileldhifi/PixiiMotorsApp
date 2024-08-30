@@ -17,6 +17,7 @@ import {
 } from "../../../Utils/Metrics";
 import SuggestSupportMessageListItem from "../../../Component/ListItem/SuggestSupportMessageListItem";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { TYPOGRAPHY } from "../../../Constants/typography";
 
 const SupportScreen = () => {
   return (
@@ -65,12 +66,14 @@ const styles = StyleSheet.create({
   greetingText: {
     fontSize: moderateScale(24),
     color: Colors.white,
-    fontWeight: "bold",
+    fontFamily: TYPOGRAPHY.semiBold,
   },
   subText: {
     fontSize: moderateScale(18),
     color: Colors.white,
     marginTop: verticalScale(5),
+    fontFamily: TYPOGRAPHY.medium,
+
   },
 
   inputContainer: {

@@ -6,6 +6,8 @@ import {
   Text,
   View,
 } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Iconn from "react-native-vector-icons/MaterialIcons";
 import { IMAGES } from "../../Constants/image";
 import { TYPOGRAPHY } from "../../Constants/typography";
 import { Colors } from "../../Styles/colors";
@@ -15,9 +17,6 @@ import {
   moderateScale,
   verticalScale,
 } from "../../Utils/Metrics";
-import Iconn from "react-native-vector-icons/MaterialIcons";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { color } from "@rneui/base";
 
 interface BatteryCardProps {
   expanded: boolean;

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { TYPOGRAPHY } from "../../Constants/typography";
 import {
@@ -9,9 +9,11 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 interface ButtonProps {
-    text:string
+  text: string;
+  onpress?:any
 }
-const Button :React.FC<ButtonProps>= ({ text }) => {
+
+const Button: React.FC<ButtonProps> = ({ text,onpress }) => {
   return (
     <LinearGradient
       colors={["#5F5CFF", "#4E4AFF"]}
@@ -19,7 +21,7 @@ const Button :React.FC<ButtonProps>= ({ text }) => {
       end={{ x: 0, y: 1 }}
       style={styles.gradient}
     >
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={onpress}>
         <Text style={styles.buttonText}>{text}</Text>
       </TouchableOpacity>
     </LinearGradient>
@@ -29,18 +31,19 @@ const Button :React.FC<ButtonProps>= ({ text }) => {
 export default Button;
 
 const styles = StyleSheet.create({
+  gradient: {
+    borderRadius: 12,
+    width: "100%", // Full width for the gradient
+  },
   button: {
-    width: "100%",
-    paddingHorizontal: horizontalScale(15),
-    paddingVertical: verticalScale(15),
-    alignItems: "center",
+    width: "100%", // Full width for the button
+    paddingVertical: verticalScale(15), // Adjust padding as needed
+    alignItems: "center", // Centers text horizontally
+    justifyContent: "center", // Centers text vertically
   },
   buttonText: {
     color: "#fff",
     fontFamily: TYPOGRAPHY.medium,
     fontSize: moderateScale(15),
-  },
-  gradient: {
-    borderRadius: 12,
   },
 });

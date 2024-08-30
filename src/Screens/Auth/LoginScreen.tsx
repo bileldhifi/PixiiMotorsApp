@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 import {
+  Image,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  Image,
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { IMAGES } from "../../Constants/image";
+import { TYPOGRAPHY } from "../../Constants/typography";
+import { Colors } from "../../Styles/colors";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from "../../Utils/Metrics";
-import { Colors } from "../../Styles/colors";
-import { TYPOGRAPHY } from "../../Constants/typography";
-import { IMAGES } from "../../Constants/image";
-import LinearGradient from "react-native-linear-gradient";
-import { Screen } from "react-native-screens";
-import { Link } from "@react-navigation/native";
-import BottomTab from "../../Navigations/BottomTab";
+import Button from "../../Component/Button/Button";
 
 const LoginScreen = ({ navigation }: any) => {
   const [showPassword, setshowPassword] = useState(false);
@@ -67,14 +65,7 @@ const LoginScreen = ({ navigation }: any) => {
         end={{ x: 0, y: 1 }}
         style={styles.gradient}
       >
-        <TouchableOpacity
-          style={styles.loginButton}
-          onPress={() => {
-            navigation.navigate("QrcodeScreen");
-          }}
-        >
-          <Text style={styles.loginButtonText}>Log In</Text>
-        </TouchableOpacity>
+        <Button text={"Log In"} />
       </LinearGradient>
       <View style={styles.separatorContainer}>
         <View style={styles.separator} />

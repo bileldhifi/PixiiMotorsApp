@@ -10,14 +10,16 @@ type HomeCardProps = {
   title: string;
   icon: string;
   iconColor: string;
+  onpress?:any
 };
 
 const HomeCard: React.FC<HomeCardProps> = ({
   title,
   icon,
+  onpress
 }) => {
   return (
-    <Pressable style={styles.cardPressable}>
+    <Pressable style={styles.cardPressable} onPress={onpress}>
       <Text style={styles.title}>{title}</Text>
       <Icon name={icon} size={45} color={Colors.cardIcon} />
     </Pressable>

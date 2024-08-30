@@ -19,6 +19,8 @@ import NotificationScreen from "./src/Screens/Main/Notification/NotificationScre
 import BottomTab from "./src/Navigations/BottomTab";
 import { NavigationContainer } from "@react-navigation/native";
 import { Colors } from "./src/Styles/colors";
+import SwapBattery from "./src/Screens/Main/SwapBattery/SwapBattery";
+import AppStack from "./src/Navigations/AppStack";
 
 const handlePress = () => {
   showToast("success", "Operation Successful", "Your action was successful!");
@@ -35,7 +37,7 @@ const App = () => {
   return (
     <SafeAreaView style={{ flex: 1,backgroundColor : Colors.black }}>
       <NavigationContainer>
-        <BottomTab />
+        <AppStack />
       </NavigationContainer>
     </SafeAreaView>
   );

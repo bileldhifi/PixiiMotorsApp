@@ -9,4 +9,5 @@ export const IMAGES = {
   Lock: require("../../Assets/Img/lock.jpg"),
   LockOpen: require("../../Assets/Img/lockOpen.png"),
   arrow: require("../../Assets/Img/arrow.png"),
+  QrCode: require("../../Assets/Img/QrCode.png"),
 };

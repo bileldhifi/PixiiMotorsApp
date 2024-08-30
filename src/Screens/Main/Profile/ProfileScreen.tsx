@@ -1,13 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { moderateScale, verticalScale } from "../../../Utils/Metrics";
-import { Colors } from "../../../Styles/colors";
-import { TYPOGRAPHY } from "../../../Constants/typography";
-import LinearGradient from "react-native-linear-gradient";
 import Divider from "../../../Component/Divider/Divider";
+import { TYPOGRAPHY } from "../../../Constants/typography";
+import { Colors } from "../../../Styles/colors";
+import { moderateScale, verticalScale } from "../../../Utils/Metrics";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -17,6 +16,9 @@ const ProfileScreen = () => {
           size={moderateScale(60)}
           color={Colors.white}
           style={styles.profileIcon}
+          onPress={() => {
+            navigation.navigate("ProfileEditScreen");
+          }}
         />
 
         {/* User Details */}
@@ -41,10 +43,18 @@ const ProfileScreen = () => {
 
       {/* Body Container */}
       <View style={styles.bodyContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("AchievementScreen");
+          }}
+        >
           <Text style={styles.optionText}>My achievements</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("LoginHolder");
+          }}
+        >
           <Text style={styles.logoutText}>Log out</Text>
         </TouchableOpacity>
       </View>

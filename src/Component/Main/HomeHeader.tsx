@@ -1,13 +1,16 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { horizontalScale, moderateScale, verticalScale } from "../../Utils/Metrics";
-import { Colors } from "../../Styles/colors";
 import { IMAGES } from "../../Constants/image";
 import { TYPOGRAPHY } from "../../Constants/typography";
+import { Colors } from "../../Styles/colors";
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from "../../Utils/Metrics";
 
-
-const HomeHeader = () => {
+const HomeHeader = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -25,7 +28,12 @@ const HomeHeader = () => {
           </View>
         </View>
         <View style={styles.rightSideWrapper}>
-          <Pressable style={styles.profileIcon}>
+          <Pressable
+            style={styles.profileIcon}
+            onPress={() => {
+              navigation.navigate('ProfileScreen');
+            }}
+          >
             <Icon name="account" size={moderateScale(45)} color="#fff" />
           </Pressable>
         </View>
@@ -58,6 +66,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.primary,
+    // fontFamily: TYPOGRAPHY.light,
     fontFamily: TYPOGRAPHY.light,
     fontSize: moderateScale(20),
   },
@@ -89,7 +98,8 @@ const styles = StyleSheet.create({
     borderWidth: horizontalScale(0.8),
     marginVertical: verticalScale(10),
   },
-  statusIcon: { paddingRight: horizontalScale(5)},
+
+  statusIcon: { paddingRight: horizontalScale(5) },
   statusText: {
     color: Colors.status,
     fontFamily: TYPOGRAPHY.medium,

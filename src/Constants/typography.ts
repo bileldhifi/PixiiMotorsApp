@@ -1,6 +1,6 @@
 export const TYPOGRAPHY = {
-  light: "PlusJakartaSans-Light",
-  regular: "PlusJakartaSans-Regular",
-  medium: "PlusJakartaSans-Medium",
-  semiBold: "PlusJakartaSans-SemiBold",
+  light: "Plus Jakarta Sans Light",
+  regular: "Plus Jakarta Sans Regular",
+  medium: "Plus Jakarta Sans Medium",
+  semiBold: "Plus Jakarta Sans SemiBold",
 };

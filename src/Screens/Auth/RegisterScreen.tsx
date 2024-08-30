@@ -1,30 +1,27 @@
 import React, { useState } from "react";
 import {
+  Button,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  Image,
-  Button,
-  SafeAreaView,
 } from "react-native";
+import { CountryPicker } from "react-native-country-codes-picker";
+import DatePicker from "react-native-date-picker";
+import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { TYPOGRAPHY } from "../../Constants/typography";
+import { Colors } from "../../Styles/colors";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from "../../Utils/Metrics";
-import { Colors } from "../../Styles/colors";
-import { TYPOGRAPHY } from "../../Constants/typography";
-import { IMAGES } from "../../Constants/image";
-import LinearGradient from "react-native-linear-gradient";
-import { ScrollView } from "react-native-gesture-handler";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import DatePicker from "react-native-date-picker";
-import { CountryPicker } from "react-native-country-codes-picker";
+import Buttonn from "../../Component/Button/Button";
 
-const RegisterScreen = ({navigation}:any) => {
+const RegisterScreen = ({ navigation }: any) => {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [dateText, setDateText] = useState("");
@@ -35,136 +32,134 @@ const RegisterScreen = ({navigation}:any) => {
   const [countryFlag, setcountryFlag] = useState("🇺🇸");
 
   return (
-   <>
-      
-      <View style={styles.footer}>
-        
-        <View style={styles.nameLastNameWrapper}>
-          <View style={[styles.nameWrapper, styles.firstNameWrapper]}>
-            <Text style={styles.textInput}>First Name</Text>
-            <TextInput style={styles.input} placeholder="First Name" />
+    <>
+      <ScrollView>
+        <View style={styles.footer}>
+          <View style={styles.nameLastNameWrapper}>
+            <View style={[styles.nameWrapper, styles.firstNameWrapper]}>
+              <Text style={styles.textInput}>First Name</Text>
+              <TextInput style={styles.input} placeholder="First Name" />
+            </View>
+            <View style={styles.nameWrapper}>
+              <Text style={styles.textInput}>Last Name</Text>
+              <TextInput style={styles.input} placeholder="Last Name" />
+            </View>
           </View>
-          <View style={styles.nameWrapper}>
-            <Text style={styles.textInput}>Last Name</Text>
-            <TextInput style={styles.input} placeholder="Last Name" />
-          </View>
-        </View>
-        <View style={styles.inputWrapper}>
-          <Text style={styles.textInput}>Email</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="email address"
-            keyboardType="email-address"
-          />
-        </View>
-        <View style={styles.inputWrapper}>
-          <Text style={styles.textInput}>Data of birth</Text>
-          <View style={styles.passContainer}>
+          <View style={styles.inputWrapper}>
+            <Text style={styles.textInput}>Email</Text>
             <TextInput
               style={styles.input}
-              placeholder="Data of birth"
-              value={dateText}
-              editable={false}
-              onPress={() => setOpen(true)}
+              placeholder="email address"
+              keyboardType="email-address"
             />
-            <Icon name="calendar" size={20} style={styles.icon} />
           </View>
-          <DatePicker
-            modal
-            open={open}
-            date={date}
-            mode="date"
-            onConfirm={(date) => {
-              setOpen(false);
-              setDate(date);
-              setDateText(date.toLocaleDateString());
-            }}
-            onCancel={() => {
-              setOpen(false);
-            }}
-          />
-        </View>
-        <View style={styles.inputWrapper}>
-          <Text style={styles.textInput}>Phone Number</Text>
-          <View style={styles.passContainer}>
-            <TouchableOpacity
-              onPress={() => setShow(true)}
-              style={[
-                styles.phoneNumberInput,
-                {
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderTopLeftRadius: 12,
-                  borderBottomLeftRadius: 12,
-                },
-              ]}
-            >
-              <Text
-                style={{
-                  color: "black",
-                  fontSize: moderateScale(20),
-                }}
+          <View style={styles.inputWrapper}>
+            <Text style={styles.textInput}>Data of birth</Text>
+            <View style={styles.passContainer}>
+              <TextInput
+                style={styles.input}
+                placeholder="Data of birth"
+                value={dateText}
+                editable={false}
+                onPress={() => setOpen(true)}
+              />
+              <Icon name="calendar" size={20} style={styles.icon} />
+            </View>
+            <DatePicker
+              modal
+              open={open}
+              date={date}
+              mode="date"
+              onConfirm={(date) => {
+                setOpen(false);
+                setDate(date);
+                setDateText(date.toLocaleDateString());
+              }}
+              onCancel={() => {
+                setOpen(false);
+              }}
+            />
+          </View>
+          <View style={styles.inputWrapper}>
+            <Text style={styles.textInput}>Phone Number</Text>
+            <View style={styles.passContainer}>
+              <TouchableOpacity
+                onPress={() => setShow(true)}
+                style={[
+                  styles.phoneNumberInput,
+                  {
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderTopLeftRadius: 12,
+                    borderBottomLeftRadius: 12,
+                  },
+                ]}
               >
-                {countryFlag}
-              </Text>
-              <Icon name="chevron-down" size={20} />
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    color: "black",
+                    fontSize: moderateScale(20),
+                  }}
+                >
+                  {countryFlag}
+                </Text>
+                <Icon name="chevron-down" size={20} />
+              </TouchableOpacity>
 
-            <TextInput
-              style={[
-                styles.phoneNumberInput,
-                {
-                  flex: 1,
-                  borderTopRightRadius: 12,
-                  borderBottomRightRadius: 12,
-                },
-              ]}
-              placeholder="Phone Number"
-              keyboardType="phone-pad"
-            />
+              <TextInput
+                style={[
+                  styles.phoneNumberInput,
+                  {
+                    flex: 1,
+                    borderTopRightRadius: 12,
+                    borderBottomRightRadius: 12,
+                  },
+                ]}
+                placeholder="Phone Number"
+                keyboardType="phone-pad"
+              />
+            </View>
           </View>
-        </View>
 
-        <CountryPicker
-          lang={"pl"}
-          show={show}
-          searchMessage="Search for country"
-          pickerButtonOnPress={(item) => {
-            setCountryCode(item.dial_code);
-            setcountryFlag(item.flag);
-            setShow(false);
-          }}
-        />
-        <View style={styles.inputWrapper}>
-          <Text style={styles.textInput}>Password</Text>
-          <View style={styles.passContainer}>
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              secureTextEntry={!showPassword}
-            />
-            <Icon
-              name={showPassword ? "eye-outline" : "eye-off-outline"}
-              size={20}
-              style={styles.icon}
-              onPress={() => setshowPassword(!showPassword)}
-            />
+          <CountryPicker
+            lang={"pl"}
+            show={show}
+            searchMessage="Search for country"
+            pickerButtonOnPress={(item) => {
+              setCountryCode(item.dial_code);
+              setcountryFlag(item.flag);
+              setShow(false);
+            }}
+          />
+          <View style={styles.inputWrapper}>
+            <Text style={styles.textInput}>Password</Text>
+            <View style={styles.passContainer}>
+              <TextInput
+                style={styles.input}
+                placeholder="Password"
+                secureTextEntry={!showPassword}
+              />
+              <Icon
+                name={showPassword ? "eye-outline" : "eye-off-outline"}
+                size={20}
+                style={styles.icon}
+                onPress={() => setshowPassword(!showPassword)}
+              />
+            </View>
           </View>
-        </View>
 
-        <LinearGradient
-          colors={["#5F5CFF", "#4E4AFF"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={styles.gradient}
-        >
-          <TouchableOpacity style={styles.loginButton} onPress={() => {navigation.navigate('singin')}}>
-            <Text style={styles.loginButtonText}>Register</Text>
-          </TouchableOpacity>
-        </LinearGradient>
-      </View>
-      </>
+          <LinearGradient
+            colors={["#5F5CFF", "#4E4AFF"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+            style={styles.gradient}
+          >
+            <Buttonn text="Register" />
+          </LinearGradient>
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
@@ -292,17 +287,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-  loginButton: {
-    width: "100%",
-    paddingHorizontal: horizontalScale(15),
-    paddingVertical: verticalScale(15),
-    alignItems: "center",
-  },
-  loginButtonText: {
-    color: "#fff",
-    fontFamily: TYPOGRAPHY.medium,
-    fontSize: moderateScale(15),
-  },
   separatorContainer: {
     flexDirection: "row",
     alignItems: "center",

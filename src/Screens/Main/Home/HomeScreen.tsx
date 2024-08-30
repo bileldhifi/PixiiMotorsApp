@@ -1,24 +1,21 @@
 import React, { useState } from "react";
 import {
-  Image,
   LayoutAnimation,
   Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   UIManager,
-  View,
+  View
 } from "react-native";
 import BatteryCard from "../../../Component/Main/BatteryCard";
 import HomeCard from "../../../Component/Main/HomeCard";
 import HomeHeader from "../../../Component/Main/HomeHeader";
 import WeatherCard from "../../../Component/Main/WeatherCard";
-import { IMAGES } from "../../../Constants/image";
+import LockUnlockSlider from "../../../Component/Slider/LockUnlockSlider";
 import { Colors } from "../../../Styles/colors";
 import { horizontalScale, verticalScale } from "../../../Utils/Metrics";
-import SwipeButton from "rn-swipe-button";
-import LockUnlockSlider from "../../../Component/Slider/LockUnlockSlider";
-const HomeScreen = () => {
+const HomeScreen = ({navigation}:any) => {
   const [expanded, setExpanded] = useState(false);
   const [lock, setLock] = useState(false);
 
@@ -54,12 +51,15 @@ const HomeScreen = () => {
                     title="Track Location"
                     iconColor="#03A168"
                     icon="map-marker"
+                    onpress={()=>{navigation.navigate('MapScreen')}}
                   />
                   <View style={styles.spaceBetweenCard}></View>
                   <HomeCard
                     title="Swap Station"
                     iconColor="#03A168"
                     icon="qrcode"
+                    onpress={()=>{navigation.navigate('SwapBattery')}}
+
                   />
                 </View>
               </View>

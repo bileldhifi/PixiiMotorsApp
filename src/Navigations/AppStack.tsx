@@ -13,6 +13,7 @@ import SwapBattery from "../Screens/Main/SwapBattery/SwapBattery";
 import BottomTab from "./BottomTab";
 import AchievementScreen from "../Screens/Main/Achievement/AchievementScreen";
 import HomeHeader from "../Component/Main/HomeHeader";
+
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
@@ -29,7 +30,6 @@ const AppStack = () => {
       <Stack.Screen name="SwapBattery" component={SwapBattery} />
       <Stack.Screen name="MapScreen" component={MapScreen} />
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
-      {/* <Stack.Screen name="HomeHeader" component={HomeHeader} /> */}
       <Stack.Screen name="AchievementScreen" component={AchievementScreen} />
       <Stack.Screen name="ProfileEditScreen" component={ProfileEditScreen} />
       <Stack.Screen

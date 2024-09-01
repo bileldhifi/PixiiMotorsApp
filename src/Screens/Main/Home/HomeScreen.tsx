@@ -38,7 +38,7 @@ const HomeScreen = ({navigation}:any) => {
     <SafeAreaView style={styles.Glcontainer}>
       <ScrollView>
         <View style={styles.container}>
-          <HomeHeader />
+          <HomeHeader navigation={navigation}/>
           <BatteryCard expanded={expanded} toggleExpanded={toggleExpanded} />
           {!expanded && (
             <>

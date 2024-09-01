@@ -31,7 +31,7 @@ const HomeHeader = ({ navigation }: any) => {
           <Pressable
             style={styles.profileIcon}
             onPress={() => {
-              navigation.navigate('ProfileScreen');
+              navigation.navigate("ProfileScreen");
             }}
           >
             <Icon name="account" size={moderateScale(45)} color="#fff" />

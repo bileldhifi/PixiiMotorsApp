@@ -16,9 +16,7 @@ const ProfileScreen = ({ navigation }: any) => {
           size={moderateScale(60)}
           color={Colors.white}
           style={styles.profileIcon}
-          onPress={() => {
-            navigation.navigate("ProfileEditScreen");
-          }}
+
         />
 
         {/* User Details */}
@@ -34,6 +32,9 @@ const ProfileScreen = ({ navigation }: any) => {
             size={moderateScale(25)}
             color={Colors.white}
             style={styles.statusIcon}
+            onPress={() => {
+              navigation.navigate("ProfileEditScreen");
+            }}
           />
         </TouchableOpacity>
       </View>
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     marginBottom: moderateScale(30),
   },
   logoutText: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(20),
     color: Colors.red,
   },
 });

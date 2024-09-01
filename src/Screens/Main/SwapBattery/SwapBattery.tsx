@@ -1,22 +1,14 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Button,
-} from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import Buttonn from "../../../Component/Button/Button";
+import { IMAGES } from "../../../Constants/image";
+import { TYPOGRAPHY } from "../../../Constants/typography";
 import { Colors } from "../../../Styles/colors";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from "../../../Utils/Metrics";
-import { IMAGES } from "../../../Constants/image";
-import { TYPOGRAPHY } from "../../../Constants/typography";
-import { useNavigation } from "@react-navigation/native"; // Import useNavigation hook
 
 const SwapBattery = ({ navigation }: any) => {
   return (

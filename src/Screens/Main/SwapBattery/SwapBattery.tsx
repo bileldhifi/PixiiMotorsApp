@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.black,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: horizontalScale(30),
+    paddingHorizontal: horizontalScale(20),
     paddingVertical: verticalScale(20),
   },
   title: {
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   instruction: {
     fontSize: moderateScale(16),
     color: Colors.white,
-    marginBottom: verticalScale(40),
+    marginBottom: verticalScale(180),
     width: horizontalScale(150),
     textAlign: "center",
     alignSelf: "center",

@@ -13,25 +13,42 @@ import SwapBattery from "../Screens/Main/SwapBattery/SwapBattery";
 import BottomTab from "./BottomTab";
 import AchievementScreen from "../Screens/Main/Achievement/AchievementScreen";
 import HomeHeader from "../Component/Main/HomeHeader";
+import BackHeader from "../Component/Header/BackHeader";
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
   return (
     <Stack.Navigator
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: true }}
       initialRouteName="BottomTab"
     >
-      <Stack.Screen name="LoginHolder" component={LoginHolder} />
+      <Stack.Screen
+        name="LoginHolder"
+        component={LoginHolder}
+        options={{ header: () => <BackHeader showBackButton={false} /> }}
+      />
       <Stack.Screen name="ScanCodeScreen" component={ScanCodeScreen} />
       <Stack.Screen name="QrcodeScreen" component={QrcodeScreen} />
       <Stack.Screen name="SupportScreen" component={SupportScreen} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="SwapBattery" component={SwapBattery} />
-      <Stack.Screen name="MapScreen" component={MapScreen} />
-      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen
+        name="SwapBattery"
+        component={SwapBattery}
+        options={{ header: () => <BackHeader showBackButton={true} /> }}
+      />
+      <Stack.Screen name="MapScreen" component={MapScreen} options={{ header: () => <BackHeader showBackButton={false} /> }} />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ header: () => <BackHeader showBackButton={false} /> }}
+      />
       <Stack.Screen name="AchievementScreen" component={AchievementScreen} />
-      <Stack.Screen name="ProfileEditScreen" component={ProfileEditScreen} />
+      <Stack.Screen
+        name="ProfileEditScreen"
+        component={ProfileEditScreen}
+        options={{ header: () => <BackHeader showBackButton={true} /> }}
+      />
       <Stack.Screen
         name="BottomTab"
         component={BottomTab}

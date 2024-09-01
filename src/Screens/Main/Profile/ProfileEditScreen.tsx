@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.black,
-    paddingHorizontal: horizontalScale(5),
+    paddingHorizontal: horizontalScale(10),
   },
   profilePicContainer: {
     alignItems: "center",

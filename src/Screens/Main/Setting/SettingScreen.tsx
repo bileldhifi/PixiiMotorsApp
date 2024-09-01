@@ -24,28 +24,24 @@ const SettingScreen = ({ navigation }: any) => {
         <ScrollView contentContainerStyle={styles.scrollContent}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Report an issue");
             }}
           >
             <Text style={styles.optionText}>Report an issue</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("AchievementScreen");
             }}
           >
             <Text style={styles.optionText}>Language</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("AchievementScreen");
             }}
           >
             <Text style={styles.optionText}>Notifications</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("AchievementScreen");
             }}
           >
             <Text style={styles.optionText}>FAQ</Text>

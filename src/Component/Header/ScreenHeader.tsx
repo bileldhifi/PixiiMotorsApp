@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     backgroundColor : Colors.black,
-    paddingTop: verticalScale(30),
+    paddingTop: verticalScale(20),
   },
   titleText: {
     alignSelf: "center",

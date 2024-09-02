@@ -19,10 +19,17 @@ import Divider from "../../../Component/Divider/Divider";
 import { TYPOGRAPHY } from "../../../Constants/typography";
 import Button from "../../../Component/Button/Button";
 import CustomModal from "../../../Component/Modal/CustomModal";
+import ToastComponent, { showToast } from "../../../Component/Alert/Toast";
 
 const ProfileEditScreen = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+
+  // handle save 
+  const handleSave =() =>{
+    console.log('button clicked ')
+    showToast('success', 'Changes Saved!', 'Your action was successful!');
+  }
   // Function to toggle modal visibility
   const toggleModal = () => {
     setIsModalVisible(!isModalVisible);
@@ -110,10 +117,11 @@ const ProfileEditScreen = () => {
             />
           </View>
 
-          <Button text="Save" />
+          <Button text="Save" onpress={handleSave} />
         </View>
       </ScrollView>
       <CustomModal isVisible={isModalVisible} onClose={toggleModal} />
+      <ToastComponent />
     </View>
   );
 };

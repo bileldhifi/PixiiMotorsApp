@@ -6,15 +6,15 @@ export const showToast = (
   type: 'success' | 'error' | 'info', 
   text1: string, 
   text2?: string, 
-  visibilityTime?: number
+  visibilityTime?: number,
 ) => {
   Toast.show({
     type: type,
     text1: text1,
     text2: text2,
     position: 'bottom', 
-    visibilityTime: visibilityTime || 4000, 
-    autoHide: false, 
+    visibilityTime: visibilityTime || 2500, 
+    autoHide: true, 
     bottomOffset: verticalScale(50), 
   });
 };

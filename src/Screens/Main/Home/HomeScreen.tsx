@@ -6,7 +6,7 @@ import {
   ScrollView,
   StyleSheet,
   UIManager,
-  View
+  View,
 } from "react-native";
 import BatteryCard from "../../../Component/Main/BatteryCard";
 import HomeCard from "../../../Component/Main/HomeCard";
@@ -15,7 +15,7 @@ import WeatherCard from "../../../Component/Main/WeatherCard";
 import LockUnlockSlider from "../../../Component/Slider/LockUnlockSlider";
 import { Colors } from "../../../Styles/colors";
 import { horizontalScale, verticalScale } from "../../../Utils/Metrics";
-const HomeScreen = ({navigation}:any) => {
+const HomeScreen = ({ navigation }: any) => {
   const [expanded, setExpanded] = useState(false);
   const [lock, setLock] = useState(false);
 
@@ -36,9 +36,9 @@ const HomeScreen = ({navigation}:any) => {
 
   return (
     <SafeAreaView style={styles.Glcontainer}>
-      <ScrollView>
-        <View style={styles.container}>
-          <HomeHeader navigation={navigation}/>
+      <View style={styles.container}>
+        <ScrollView>
+          <HomeHeader navigation={navigation} />
           <BatteryCard expanded={expanded} toggleExpanded={toggleExpanded} />
           {!expanded && (
             <>
@@ -51,15 +51,18 @@ const HomeScreen = ({navigation}:any) => {
                     title="Track Location"
                     iconColor="#03A168"
                     icon="map-marker"
-                    onpress={()=>{navigation.navigate('MapScreen')}}
+                    onpress={() => {
+                      navigation.navigate("MapScreen");
+                    }}
                   />
                   <View style={styles.spaceBetweenCard}></View>
                   <HomeCard
                     title="Swap Station"
                     iconColor="#03A168"
                     icon="qrcode"
-                    onpress={()=>{navigation.navigate('SwapBattery')}}
-
+                    onpress={() => {
+                      navigation.navigate("SwapBattery");
+                    }}
                   />
                 </View>
               </View>
@@ -90,11 +93,11 @@ const HomeScreen = ({navigation}:any) => {
               thumbIconBorderRadius={10}
               shouldResetAfterSuccess= {true}
             /> */}
-          <LockUnlockSlider/>
             </>
           )}
-        </View>
-      </ScrollView>
+        </ScrollView>
+        {!expanded && <LockUnlockSlider />}
+      </View>
     </SafeAreaView>
   );
 };

@@ -27,7 +27,7 @@ const SwapBattery = ({ navigation }: any) => {
       <Buttonn
         text={"Open Camera"}
         onpress={() => {
-          navigation.navigate("BottomTab");
+          navigation.navigate("QrcodeScreen");
         }}
       />
     </View>

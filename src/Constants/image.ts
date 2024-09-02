@@ -10,5 +10,6 @@ export const IMAGES = {
   LockOpen: require("../../Assets/Img/lockOpen.png"),
   arrow: require("../../Assets/Img/arrow.png"),
   QrCode: require("../../Assets/Img/QrCode.png"),
+  pixiiLogoWhite: require("../../Assets/Img/pixiiLogoWhite.png"),
   backArrow: require("../../Assets/Img/backArrow1.png"),
 };

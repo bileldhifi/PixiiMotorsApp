@@ -14,6 +14,7 @@ import BottomTab from "./BottomTab";
 import AchievementScreen from "../Screens/Main/Achievement/AchievementScreen";
 import HomeHeader from "../Component/Main/HomeHeader";
 import BackHeader from "../Component/Header/BackHeader";
+import PairedSucess from "../Screens/Main/PairedSucces/PairedSucess";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,15 +22,23 @@ const AppStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: true }}
-      initialRouteName="BottomTab"
+      initialRouteName="LoginHolder"
     >
       <Stack.Screen
         name="LoginHolder"
         component={LoginHolder}
         options={{ header: () => <BackHeader showBackButton={false} /> }}
       />
-      <Stack.Screen name="ScanCodeScreen" component={ScanCodeScreen} />
-      <Stack.Screen name="QrcodeScreen" component={QrcodeScreen} />
+      <Stack.Screen
+        name="ScanCodeScreen"
+        component={ScanCodeScreen}
+        options={{ header: () => <BackHeader showBackButton={false} /> }}
+      />
+      <Stack.Screen
+        name="QrcodeScreen"
+        component={QrcodeScreen}
+        options={{ header: () => <BackHeader showBackButton={false} /> }}
+      />
       <Stack.Screen name="SupportScreen" component={SupportScreen} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen
@@ -37,17 +46,30 @@ const AppStack = () => {
         component={SwapBattery}
         options={{ header: () => <BackHeader showBackButton={true} /> }}
       />
-      <Stack.Screen name="MapScreen" component={MapScreen} options={{ header: () => <BackHeader showBackButton={false} /> }} />
+      <Stack.Screen
+        name="MapScreen"
+        component={MapScreen}
+        options={{ header: () => <BackHeader showBackButton={false} /> }}
+      />
       <Stack.Screen
         name="ProfileScreen"
         component={ProfileScreen}
         options={{ header: () => <BackHeader showBackButton={false} /> }}
       />
-      <Stack.Screen name="AchievementScreen" component={AchievementScreen} />
+      <Stack.Screen
+        name="AchievementScreen"
+        component={AchievementScreen}
+        options={{ header: () => <BackHeader showBackButton={false} /> }}
+      />
       <Stack.Screen
         name="ProfileEditScreen"
         component={ProfileEditScreen}
         options={{ header: () => <BackHeader showBackButton={true} /> }}
+      />
+            <Stack.Screen
+        name="PairedSucess"
+        component={PairedSucess}
+        options={{ header: () => <BackHeader showBackButton={false} /> }}
       />
       <Stack.Screen
         name="BottomTab"

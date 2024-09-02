@@ -25,12 +25,12 @@ export default class BottomTab extends Component {
         screenOptions={{
           tabBarShowLabel: false,
           headerShown: false,
-          tabBarInactiveTintColor: Colors.inactiveTab,
-          tabBarActiveTintColor: Colors.cardIcon,
+          tabBarInactiveTintColor: Colors.grey,
+          tabBarActiveTintColor: Colors.mainGreen,
           headerTitleStyle: styles.headerTitle,
           headerStyle: styles.headerStyles,
           tabBarStyle: {
-            backgroundColor: Colors.globalBg,
+            backgroundColor: Colors.black,
             height: verticalScale(100),
             borderTopWidth: 0,
           },

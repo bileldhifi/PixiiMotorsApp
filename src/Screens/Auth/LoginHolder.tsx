@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Button,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
@@ -22,7 +23,7 @@ import { TYPOGRAPHY } from "../../Constants/typography";
 
 // let currentScreen = "login";
 
-const LoginHolder = () => {
+const LoginHolder = ({navigation}:any)  => {
   const [isLoginScreen, setIsLoginScreen] = useState(true);
   return (
     <View style={styles.container}>
@@ -52,7 +53,7 @@ const LoginHolder = () => {
             </Text>
           </TouchableOpacity>
         </View>
-        {isLoginScreen ? <LoginScreen /> : <RegisterScreen />}
+        {isLoginScreen ? <LoginScreen navigate={navigation} /> : <RegisterScreen navigate={navigation}/>}
       </View>
     </View>
   );

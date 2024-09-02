@@ -21,7 +21,7 @@ import {
 } from "../../Utils/Metrics";
 import Buttonn from "../../Component/Button/Button";
 
-const RegisterScreen = ({ navigation }: any) => {
+const RegisterScreen = ({ navigate }: any) => {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [dateText, setDateText] = useState("");
@@ -30,6 +30,7 @@ const RegisterScreen = ({ navigation }: any) => {
   const [show, setShow] = useState(false);
   const [countryCode, setCountryCode] = useState("+1");
   const [countryFlag, setcountryFlag] = useState("🇺🇸");
+
 
   return (
     <>
@@ -155,7 +156,7 @@ const RegisterScreen = ({ navigation }: any) => {
             end={{ x: 0, y: 1 }}
             style={styles.gradient}
           >
-            <Buttonn text="Register" />
+            <Buttonn text="Register" onpress={()=>{navigate.replace('PairedSucess')}}/>
           </LinearGradient>
         </View>
       </ScrollView>
@@ -165,7 +166,7 @@ const RegisterScreen = ({ navigation }: any) => {
 
 export default RegisterScreen;
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  
   container: {
     flex: 1,
     justifyContent: "center",

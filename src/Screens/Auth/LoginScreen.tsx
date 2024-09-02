@@ -19,7 +19,7 @@ import {
 } from "../../Utils/Metrics";
 import Button from "../../Component/Button/Button";
 
-const LoginScreen = ({ navigation }: any) => {
+const LoginScreen = ({ navigate }: any) => {
   const [showPassword, setshowPassword] = useState(false);
 
   return (
@@ -65,7 +65,7 @@ const LoginScreen = ({ navigation }: any) => {
         end={{ x: 0, y: 1 }}
         style={styles.gradient}
       >
-        <Button text={"Log In"} />
+        <Button text={"Log In"} onpress={()=>{navigate.replace('BottomTab')}}/>
       </LinearGradient>
       <View style={styles.separatorContainer}>
         <View style={styles.separator} />

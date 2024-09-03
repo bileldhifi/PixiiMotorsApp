@@ -4,7 +4,11 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Divider from "../../../Component/Divider/Divider";
 import { TYPOGRAPHY } from "../../../Constants/typography";
 import { Colors } from "../../../Styles/colors";
-import { moderateScale, verticalScale } from "../../../Utils/Metrics";
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from "../../../Utils/Metrics";
 
 const ProfileScreen = ({ navigation }: any) => {
   return (
@@ -16,7 +20,6 @@ const ProfileScreen = ({ navigation }: any) => {
           size={moderateScale(60)}
           color={Colors.white}
           style={styles.profileIcon}
-
         />
 
         {/* User Details */}
@@ -48,15 +51,29 @@ const ProfileScreen = ({ navigation }: any) => {
           onPress={() => {
             navigation.navigate("AchievementScreen");
           }}
+          style={styles.listContainer}
         >
+          <Icon
+            name="trophy"
+            size={moderateScale(25)}
+            style={styles.editIcon}
+            color={Colors.white}
+          />
           <Text style={styles.optionText}>My achievements</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("LoginHolder");
           }}
+          style={styles.listContainer}
         >
-          <Text style={styles.logoutText}>Log out</Text>
+          <Icon
+            name="logout"
+            size={moderateScale(25)}
+            style={styles.editIcon}
+            color={Colors.red}
+          />
+          <Text style={styles.logOutText}>Log out</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -86,17 +103,18 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontSize: moderateScale(25),
-    fontFamily: TYPOGRAPHY.medium,
+    fontFamily: TYPOGRAPHY.semiBold,
     color: Colors.white,
     marginBottom: verticalScale(5),
   },
   emailText: {
     fontSize: moderateScale(14),
     fontFamily: TYPOGRAPHY.light,
-    color: Colors.white,
+    color: Colors.grey,
   },
   editIcon: {
     padding: moderateScale(5),
+    alignSelf: "center",
   },
   statusIcon: {
     marginLeft: moderateScale(10),
@@ -108,10 +126,21 @@ const styles = StyleSheet.create({
   optionText: {
     fontSize: moderateScale(20),
     color: Colors.white,
-    marginBottom: moderateScale(30),
+    alignSelf: "center",
+    marginLeft: horizontalScale(10),
+    fontFamily: TYPOGRAPHY.light,
   },
-  logoutText: {
+
+  logOutText: {
     fontSize: moderateScale(20),
     color: Colors.red,
+    // marginBottom: moderateScale(30),
+    alignSelf: "center",
+    marginLeft: horizontalScale(10),
+    fontFamily: TYPOGRAPHY.light,
+  },
+  listContainer: {
+    flexDirection: "row",
+    marginBottom: verticalScale(20),
   },
 });

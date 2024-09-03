@@ -1,45 +1,68 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { LinearProgress } from "react-native-elements";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { TYPOGRAPHY } from "../../Constants/typography";
+import { Colors } from "../../Styles/colors";
 import {
   horizontalScale,
   moderateScale,
   verticalScale,
 } from "../../Utils/Metrics";
-import { Colors } from "../../Styles/colors";
-import { TYPOGRAPHY } from "../../Constants/typography";
-// import { ProgressBar } from 'react-native-paper';
-import { LinearProgress } from "react-native-elements";
 type AchievementCardProps = {
   title: string;
-  icon: string;
-  checkIcon?: string;
   badgeText: string;
   descriptionText: string;
-  value:number
+  value: number;
+  done: boolean;
 };
 
 const AchievementCard: React.FC<AchievementCardProps> = ({
   title,
-  icon,
-  checkIcon,
   badgeText,
   descriptionText,
-  value
+  value,
+  done,
 }) => {
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: done ? Colors.darkgreen : Colors.darkGrey },
+      ]}
+    >
       <View style={styles.goalContainer}>
         <View style={styles.rideWrapper}>
-          <Text style={styles.titleText}>{title}</Text>
-          {checkIcon && (
-            <Icon name={checkIcon} size={25} style={styles.checkIconStyle} />
+          <Text
+            style={[
+              styles.titleText,
+              { color: done ? Colors.white : Colors.black },
+            ]}
+          >
+            {title}
+          </Text>
+          {done && (
+            <Icon name={'check-bold'} size={25} style={styles.checkIconStyle} />
           )}
         </View>
-        <Icon name={icon} size={25} style={styles.iconStyle} />
+        <Icon
+          name={done ? 'home' : 'lock'}
+          size={45}
+          style={[
+            styles.iconStyle,
+            { color: done ? Colors.white : Colors.black },
+          ]}
+        />
       </View>
       <View style={styles.badgeContainer}>
-        <Text style={styles.badgeText}>{badgeText}</Text>
+        <Text
+          style={[
+            styles.badgeText,
+            { color: done ? Colors.white : Colors.black },
+          ]}
+        >
+          {badgeText}
+        </Text>
       </View>
 
       <View style={styles.descriptionContainer}>
@@ -48,7 +71,7 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
       <LinearProgress
         color={Colors.mainGreen}
         trackColor={Colors.black}
-        value={value}
+        value={done ? 1 : value}
         variant="determinate"
       />
     </View>
@@ -63,6 +86,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: horizontalScale(14),
     paddingVertical: verticalScale(16),
+    marginBottom: verticalScale(20),
   },
   goalContainer: {
     flexDirection: "row",
@@ -72,8 +96,7 @@ const styles = StyleSheet.create({
   },
   rideWrapper: { flexDirection: "row" },
   titleText: {
-    fontSize: moderateScale(23),
-    color: Colors.white,
+    fontSize: moderateScale(27),
     fontFamily: TYPOGRAPHY.semiBold,
     marginRight: horizontalScale(10),
   },

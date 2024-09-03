@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.globalBg,
-    paddingHorizontal: horizontalScale(10),
+    paddingHorizontal: horizontalScale(20),
   },
   scrollView: {
     flexGrow: 1,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: horizontalScale(10),
+    paddingHorizontal: horizontalScale(0),
     paddingVertical: verticalScale(5),
     borderRadius: 20,
     marginBottom: verticalScale(20),

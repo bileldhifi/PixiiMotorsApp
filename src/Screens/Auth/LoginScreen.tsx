@@ -65,7 +65,12 @@ const LoginScreen = ({ navigate }: any) => {
         end={{ x: 0, y: 1 }}
         style={styles.gradient}
       >
-        <Button text={"Log In"} onpress={()=>{navigate.replace('BottomTab')}}/>
+        <Button
+          text={"Log In"}
+          onpress={() => {
+            navigate.replace("BottomTab");
+          }}
+        />
       </LinearGradient>
       <View style={styles.separatorContainer}>
         <View style={styles.separator} />
@@ -145,11 +150,12 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "100%",
-    height: verticalScale(50),
+    // height: verticalScale(50),
     borderRadius: 12,
     borderColor: "#E3E3E3",
     borderWidth: 1,
     paddingHorizontal: horizontalScale(10),
+    paddingVertical: verticalScale(20),
     marginBottom: verticalScale(10),
   },
   passContainer: {

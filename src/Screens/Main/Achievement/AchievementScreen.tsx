@@ -14,10 +14,17 @@ const AchievementScreen = () => {
       <ScrollView>
         <AchievementCard
           title={"Ride 5 000 Km"}
-          icon={"lock"}
           badgeText={"Silver Badge"}
           descriptionText={"Earned 24/07/2024"}
           value={0.6}
+          done={true}
+        />
+        <AchievementCard
+          title={"Ride 5 000 Km"}
+          badgeText={"Silver Badge"}
+          descriptionText={"Earned 24/07/2024"}
+          value={0.6}
+          done={false}
         />
       </ScrollView>
     </View>

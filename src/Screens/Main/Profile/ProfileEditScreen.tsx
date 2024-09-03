@@ -24,12 +24,11 @@ import ToastComponent, { showToast } from "../../../Component/Alert/Toast";
 const ProfileEditScreen = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-
-  // handle save 
-  const handleSave =() =>{
-    console.log('button clicked ')
-    showToast('success', 'Changes Saved!', 'Your action was successful!');
-  }
+  // handle save
+  const handleSave = () => {
+    console.log("button clicked ");
+    showToast("success", "Changes Saved!", "Your action was successful!");
+  };
   // Function to toggle modal visibility
   const toggleModal = () => {
     setIsModalVisible(!isModalVisible);

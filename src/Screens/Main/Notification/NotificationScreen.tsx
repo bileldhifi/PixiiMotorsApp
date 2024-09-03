@@ -9,8 +9,8 @@ import { horizontalScale } from "../../../Utils/Metrics";
 const Notification = () => {
   return (
     <View style={styles.container}>
-      <ScreenHeader title={"Notifications"} icon={"bell"}/>
-      <Divider/>
+      <ScreenHeader title={"Notifications"} icon={"bell"} />
+      <Divider />
       <NotificationListItem />
     </View>
   );
@@ -19,5 +19,9 @@ const Notification = () => {
 export default Notification;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: Colors.globalBg ,paddingHorizontal : horizontalScale(10)},
+  container: {
+    flex: 1,
+    backgroundColor: Colors.globalBg,
+    paddingHorizontal: horizontalScale(20),
+  },
 });

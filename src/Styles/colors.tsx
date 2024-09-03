@@ -34,7 +34,10 @@ export const Colors = {
     white : '#FFFFFF',
     mainGreen : '#00FF65',
     red:'red',
-    inputBackground : '#2D2D2D'
+    inputBackground : '#2D2D2D',
+    darkGrey : '#2D2D2D',
+    darkgreen : '#27422E'
+
 }
 
 

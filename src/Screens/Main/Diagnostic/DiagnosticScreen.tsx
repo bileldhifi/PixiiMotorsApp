@@ -10,6 +10,7 @@ import {
   moderateScale,
   verticalScale,
 } from "../../../Utils/Metrics";
+import { TYPOGRAPHY } from "../../../Constants/typography";
 
 const DiagnosticScreen = () => {
   const [screen, setScreen] = useState("default");
@@ -33,7 +34,7 @@ const DiagnosticScreen = () => {
                 color={Colors.mainGreen}
               />
             </View>
-            <Text style={[styles.successText, { color: Colors.mainGreen }]}>
+            <Text style={[styles.responseText, { color: Colors.mainGreen }]}>
               No errors detected
             </Text>
           </View>
@@ -47,13 +48,22 @@ const DiagnosticScreen = () => {
                 style={styles.cercleImage}
               />
               <Icon
-                name="check-bold"
+                name="alert-circle"
                 size={moderateScale(50)}
                 style={styles.checkIcon}
                 color={Colors.red}
               />
             </View>
-            <Text style={[styles.successText, { color: Colors.red,marginBottom : verticalScale(10) }]}>
+            <Text
+              style={[
+                styles.responseText,
+                {
+                  color: Colors.red,
+                  marginBottom: verticalScale(10),
+                  textDecorationLine: "underline",
+                },
+              ]}
+            >
               1 error detected
             </Text>
             <TouchableOpacity style={styles.buttonUnpair}>
@@ -118,8 +128,6 @@ const styles = StyleSheet.create({
   },
   bodyContainer: { flex: 1, justifyContent: "space-around" },
   analyseButton: {
-    width: 150,
-    height: 150,
     borderRadius: 75,
     backgroundColor: "green",
     alignItems: "center",
@@ -128,8 +136,8 @@ const styles = StyleSheet.create({
 
   buttonText: {
     color: Colors.mainGreen,
-    fontSize: 16,
-    fontWeight: "600",
+    fontSize: moderateScale(25),
+    fontFamily: TYPOGRAPHY.medium,
     position: "absolute",
     textAlign: "center",
   },
@@ -137,22 +145,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
-  },
-
-  errorText: {
-    color: "red",
-    fontSize: 18,
-    fontWeight: "600",
-  },
-  callSupportButton: {
-    marginTop: 20,
-    padding: 12,
-    backgroundColor: "red",
-    borderRadius: 8,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
   },
   additionalContent: {
     justifyContent: "center",
@@ -165,10 +157,15 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: Colors.grey,
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(20),
     marginBottom: verticalScale(5),
+    fontFamily: TYPOGRAPHY.regular,
   },
-  subTitleText: { color: Colors.white, fontSize: 18 },
+  subTitleText: {
+    color: Colors.white,
+    fontSize: moderateScale(25),
+    fontFamily: TYPOGRAPHY.regular,
+  },
   buttonUnpair: {
     borderRadius: 20,
     borderWidth: 1,
@@ -176,12 +173,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: horizontalScale(15),
     paddingVertical: verticalScale(8),
   },
-  unpairText: { color: Colors.white, fontSize: 14 },
+  unpairText: {
+    color: Colors.white,
+    fontSize: moderateScale(18),
+    fontFamily: TYPOGRAPHY.regular,
+  },
   documentContainer: { marginTop: 10 },
   addDocumentText: {
     color: "green",
-    marginTop: 5,
+    marginTop: verticalScale(5),
     textDecorationLine: "underline",
+    fontFamily: TYPOGRAPHY.regular,
   },
 
   successScreen: {
@@ -199,12 +201,11 @@ const styles = StyleSheet.create({
   successIcon: {
     position: "absolute", // Ensures the icon is centered in the circle
     color: "green",
-    top: "35%", // Adjust this value to vertically center the icon
   },
-  successText: {
+  responseText: {
     fontSize: 18,
-    fontWeight: "600",
-    marginTop: 50, // Adds space between the icon and the text
+    fontFamily: TYPOGRAPHY.semiBold,
+    marginTop: verticalScale(10),
     textAlign: "center",
   },
   checkIcon: {

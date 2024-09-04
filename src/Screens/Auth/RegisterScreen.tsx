@@ -33,7 +33,7 @@ const RegisterScreen = ({ navigate }: any) => {
 
 
   return (
-    <>
+  
       <ScrollView>
         <View style={styles.footer}>
           <View style={styles.nameLastNameWrapper}>
@@ -160,7 +160,6 @@ const RegisterScreen = ({ navigate }: any) => {
           </LinearGradient>
         </View>
       </ScrollView>
-    </>
   );
 };
 

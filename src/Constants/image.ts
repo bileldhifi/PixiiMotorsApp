@@ -11,5 +11,8 @@ export const IMAGES = {
   arrow: require("../../Assets/Img/arrow.png"),
   QrCode: require("../../Assets/Img/QrCode.png"),
   pixiiLogoWhite: require("../../Assets/Img/pixiiLogoWhite.png"),
+  cercleAnalyse: require("../../Assets/Img/succesCercleAnalyse.png"),
+  errorLineAnalyse: require("../../Assets/Img/errorLineAnalyse.png"),
+  errorCercleAnalyse: require("../../Assets/Img/errorCercleAnalyse.png"),
   backArrow: require("../../Assets/Img/backArrow1.png"),
 };

@@ -15,6 +15,7 @@ import AchievementScreen from "../Screens/Main/Achievement/AchievementScreen";
 import HomeHeader from "../Component/Main/HomeHeader";
 import BackHeader from "../Component/Header/BackHeader";
 import PairedSucess from "../Screens/Main/PairedSucces/PairedSucess";
+import DiagnosticScreen from "../Screens/Main/Diagnostic/DiagnosticScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -66,15 +67,21 @@ const AppStack = () => {
         component={ProfileEditScreen}
         options={{ header: () => <BackHeader showBackButton={true} /> }}
       />
-            <Stack.Screen
+      <Stack.Screen
         name="PairedSucess"
         component={PairedSucess}
         options={{ header: () => <BackHeader showBackButton={false} /> }}
       />
+      
       <Stack.Screen
         name="BottomTab"
         component={BottomTab}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="DiagnosticScreen"
+        component={DiagnosticScreen}
+        options={{ headerShown: true }}
       />
     </Stack.Navigator>
   );

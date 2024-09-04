@@ -71,9 +71,15 @@
         <string>PlusJakartaSans-SemiBold.ttf</string>
         <string>PlusJakartaSans-Medium.ttf</string>
   </array>
+  
   <key>NSCameraUsageDescription</key>
   <string>$(PRODUCT_NAME) needs access to your Camera.</string>
 
+  <key>NSFaceIDUsageDescription</key>
+  <string>we need to sign in app</string>  
+  <key>NSTouchIDUsageDescription</key>
+  <string>we need to sign in app</string>
+  
 	<key>UIViewControllerBasedStatusBarAppearance</key>
   
 	<false/>

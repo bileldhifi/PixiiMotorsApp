@@ -7,7 +7,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Colors } from "../../Styles/colors";
-import { horizontalScale, moderateScale, verticalScale } from "../../Utils/Metrics";
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from "../../Utils/Metrics";
 import { TYPOGRAPHY } from "../../Constants/typography";
 
 const DATA = [
@@ -58,7 +62,7 @@ const styles = StyleSheet.create({
   },
   suggestionText: {
     fontSize: moderateScale(16),
-    fontFamily : TYPOGRAPHY.regular,
+    fontFamily: TYPOGRAPHY.regular,
     color: Colors.mainGreen,
   },
 });

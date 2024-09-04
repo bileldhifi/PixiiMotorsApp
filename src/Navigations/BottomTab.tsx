@@ -13,6 +13,7 @@ import { Colors } from "../Styles/colors";
 import { moderateScale, verticalScale } from "../Utils/Metrics";
 import { NavigationContainer } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import DiagnosticScreen from "../Screens/Main/Diagnostic/DiagnosticScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -50,7 +51,7 @@ export default class BottomTab extends Component {
         />
         <Tab.Screen
           name="Scan QrCode"
-          component={ScanCodeScreen}
+          component={DiagnosticScreen}
           options={{
             headerShown: false,
             tabBarIcon: ({ color, size }) => (

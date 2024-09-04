@@ -2,7 +2,11 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Colors } from "../../Styles/colors";
-import { horizontalScale, moderateScale, verticalScale } from "../../Utils/Metrics";
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from "../../Utils/Metrics";
 import { TYPOGRAPHY } from "../../Constants/typography";
 
 interface ScreenHeaderProps {
@@ -24,13 +28,13 @@ const styles = StyleSheet.create({
   iconStyle: { color: Colors.grey, alignSelf: "center" },
   container: {
     flexDirection: "row",
-    backgroundColor : Colors.black,
+    backgroundColor: Colors.black,
     paddingTop: verticalScale(20),
   },
   titleText: {
     alignSelf: "center",
-    color : Colors.white,
-    marginHorizontal : horizontalScale(10),
+    color: Colors.white,
+    marginHorizontal: horizontalScale(10),
     fontFamily: TYPOGRAPHY.semiBold,
     fontSize: moderateScale(30),
   },

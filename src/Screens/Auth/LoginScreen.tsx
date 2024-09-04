@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -23,65 +24,67 @@ const LoginScreen = ({ navigate }: any) => {
   const [showPassword, setshowPassword] = useState(false);
 
   return (
-    <View style={styles.footer}>
-      <View style={styles.inputWrapper}>
-        <Text style={styles.textInput}>Email</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          keyboardType="email-address"
-        />
-      </View>
-      <View style={styles.inputWrapper}>
-        <Text style={styles.textInput}>Password</Text>
-        <View style={styles.passContainer}>
+    <ScrollView>
+      <View style={styles.footer}>
+        <View style={styles.inputWrapper}>
+          <Text style={styles.textInput}>Email</Text>
           <TextInput
             style={styles.input}
-            placeholder="Password"
-            secureTextEntry={!showPassword}
-          />
-          <Icon
-            name={showPassword ? "eye-outline" : "eye-off-outline"}
-            size={20}
-            style={styles.icon}
-            onPress={() => setshowPassword(!showPassword)}
+            placeholder="Email"
+            keyboardType="email-address"
           />
         </View>
-      </View>
-      <View style={styles.optionsContainer}>
-        <View style={styles.rememberContainer}>
+        <View style={styles.inputWrapper}>
+          <Text style={styles.textInput}>Password</Text>
+          <View style={styles.passContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              secureTextEntry={!showPassword}
+            />
+            <Icon
+              name={showPassword ? "eye-outline" : "eye-off-outline"}
+              size={20}
+              style={styles.icon}
+              onPress={() => setshowPassword(!showPassword)}
+            />
+          </View>
+        </View>
+        <View style={styles.optionsContainer}>
+          <View style={styles.rememberContainer}>
+            <TouchableOpacity>
+              <Icon name="checkbox-blank-outline" size={20} />
+            </TouchableOpacity>
+            <Text style={styles.rememberText}>Remember me</Text>
+          </View>
           <TouchableOpacity>
-            <Icon name="checkbox-blank-outline" size={20} />
+            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
           </TouchableOpacity>
-          <Text style={styles.rememberText}>Remember me</Text>
         </View>
-        <TouchableOpacity>
-          <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+        <LinearGradient
+          colors={["#5F5CFF", "#4E4AFF"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
+          style={styles.gradient}
+        >
+          <Button
+            text={"Log In"}
+            onpress={() => {
+              navigate.replace("BottomTab");
+            }}
+          />
+        </LinearGradient>
+        <View style={styles.separatorContainer}>
+          <View style={styles.separator} />
+          <Text style={styles.separatorText}>Or</Text>
+          <View style={styles.separator} />
+        </View>
+        <TouchableOpacity style={styles.googleButton}>
+          <Image source={IMAGES.googleLogo} style={styles.googleIcon} />
+          <Text style={styles.googleButtonText}>Continue with Google</Text>
         </TouchableOpacity>
       </View>
-      <LinearGradient
-        colors={["#5F5CFF", "#4E4AFF"]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 1 }}
-        style={styles.gradient}
-      >
-        <Button
-          text={"Log In"}
-          onpress={() => {
-            navigate.replace("BottomTab");
-          }}
-        />
-      </LinearGradient>
-      <View style={styles.separatorContainer}>
-        <View style={styles.separator} />
-        <Text style={styles.separatorText}>Or</Text>
-        <View style={styles.separator} />
-      </View>
-      <TouchableOpacity style={styles.googleButton}>
-        <Image source={IMAGES.googleLogo} style={styles.googleIcon} />
-        <Text style={styles.googleButtonText}>Continue with Google</Text>
-      </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 

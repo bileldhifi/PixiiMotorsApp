@@ -46,7 +46,7 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
           )}
         </View>
         <Icon
-          name={done ? 'home' : 'lock'}
+          name={done ? 'trophy' : 'lock'}
           size={45}
           style={[
             styles.iconStyle,

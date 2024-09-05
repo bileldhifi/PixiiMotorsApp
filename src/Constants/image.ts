@@ -15,4 +15,6 @@ export const IMAGES = {
   errorLineAnalyse: require("../../Assets/Img/errorLineAnalyse.png"),
   errorCercleAnalyse: require("../../Assets/Img/errorCercleAnalyse.png"),
   backArrow: require("../../Assets/Img/backArrow1.png"),
+  stationIcon: require("../../Assets/Img/stationIcon.png"),
+  hideShowStationButton: require("../../Assets/Img/hideShowStationButton.png"),
 };

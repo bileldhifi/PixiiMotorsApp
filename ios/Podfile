@@ -38,3 +38,11 @@ target 'pixiiMotorsApp' do
     )
   end
 end
+
+      # MapBox 
+
+# use_frameworks!
+
+# target 'TargetNameForYourApp' do
+ #  pod 'MapboxMaps', '11.6.0}'
+# end
